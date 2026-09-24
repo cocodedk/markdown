@@ -18,13 +18,6 @@ class RepoFilesTest {
         return file.readText()
     }
 
-    private val pinned = setOf(
-        "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0",
-        "actions/setup-java@1bcf9fb12cf4aa7d266a90ae39939e61372fe520 # v5.4.0",
-        "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4",
-        "softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1",
-    )
-
     private val workflows = listOf(".github/workflows/ci.yml", ".github/workflows/release-apk.yml")
 
     @Test
@@ -48,14 +41,18 @@ class RepoFilesTest {
     }
 
     @Test
-    fun `workflows use only the pinned actions`() {
-        for (path in workflows) {
-            val uses = text(path).lines()
+    fun `workflows pin every action by commit sha`() {
+        val dir = File(root, ".github/workflows")
+        val files = dir.listFiles { f -> f.extension in setOf("yml", "yaml") }.orEmpty().sorted()
+        assertTrue("no workflows in $dir", files.isNotEmpty())
+        for (file in files) {
+            val path = file.relativeTo(root).path
+            val uses = file.readLines()
                 .map { it.trim().removePrefix("- ").trim() }
                 .filter { it.startsWith("uses:") }
                 .map { it.removePrefix("uses:").trim() }
             assertTrue("$path uses no action", uses.isNotEmpty())
-            uses.forEach { assertTrue("$path uses an unpinned action: $it", it in pinned) }
+            uses.forEach { assertTrue("$path uses an unpinned action: $it", ActionPin.isValid(it)) }
         }
     }
 
