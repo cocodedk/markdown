@@ -22,6 +22,7 @@ It only views: no editing, no accounts, no network.
 2. `specs/02-github.md`: everything the public repository needs.
 3. `specs/03-reading-comfort.md`: right-to-left text, the share sheet, zoom.
 4. `specs/04-ci-java-21.md`: CI runs on Java 21.
+5. `specs/05-pins-not-exact-shas.md`: actions pinned by SHA, so Dependabot can update them.
 
 ## Left out on purpose
 
