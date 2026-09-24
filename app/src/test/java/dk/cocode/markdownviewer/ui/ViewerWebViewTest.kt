@@ -40,6 +40,14 @@ class ViewerWebViewTest {
     }
 
     @Test
+    fun `the webview pinch-zooms without on-screen zoom buttons`() {
+        val settings = webView.settings
+        assertTrue(settings.supportZoom())
+        assertTrue(settings.builtInZoomControls)
+        assertFalse(settings.displayZoomControls)
+    }
+
+    @Test
     fun `an https link opens outside the app`() {
         assertTrue(client.shouldOverrideUrlLoading(webView, request("https://example.com/page")))
 

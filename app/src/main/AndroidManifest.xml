@@ -33,6 +33,14 @@
                 <data android:mimeType="text/x-markdown" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
+            <!-- A share carries no data URI, so this filter names types only. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/markdown" />
+                <data android:mimeType="text/x-markdown" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>

@@ -43,6 +43,20 @@ class ViewerViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
+    /** Shows [text] itself as the document, with no file behind it. */
+    fun showText(title: String, text: String) {
+        uri = null
+        job?.cancel()
+        _state.value = ViewerState.Shown(title, text, MarkdownRenderer.render(text, dark))
+    }
+
+    /** Shows the could-not-open message, with no file behind it. */
+    fun showCouldNotOpen() {
+        uri = null
+        job?.cancel()
+        _state.value = ViewerState.Failed(null, R.string.could_not_open)
+    }
+
     /** Follows the system theme; a shown page is rendered again in the new palette. */
     fun setDark(dark: Boolean) {
         if (dark == this.dark) return

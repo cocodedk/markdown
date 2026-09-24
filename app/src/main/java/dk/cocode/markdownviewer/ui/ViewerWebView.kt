@@ -17,6 +17,9 @@ object ViewerWebView {
         settings.allowFileAccess = false
         settings.allowContentAccess = false
         settings.blockNetworkLoads = true
+        // Pinch zoom only: no on-screen buttons.
+        settings.builtInZoomControls = true
+        settings.displayZoomControls = false
         webViewClient = LinkClient()
     }
 

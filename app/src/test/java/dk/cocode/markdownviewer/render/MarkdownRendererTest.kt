@@ -19,20 +19,20 @@ class MarkdownRendererTest {
         assertTrue(page.contains("<meta charset=\"utf-8\">"))
         assertTrue(page.contains("<meta name=\"viewport\""))
         assertTrue(page.contains("<style>"))
-        assertTrue(page.contains("<body>\n<p>hello</p>"))
+        assertTrue(page.contains("<body>\n<p dir=\"auto\">hello</p>"))
     }
 
     @Test
     fun `a heading renders`() {
-        assertTrue(html("# Title").contains("<h1>Title</h1>"))
+        assertTrue(html("# Title").contains("<h1 dir=\"auto\">Title</h1>"))
     }
 
     @Test
     fun `a table renders`() {
         val page = html("| a | b |\n|---|---|\n| 1 | 2 |")
         assertTrue(page.contains("<table>"))
-        assertTrue(page.contains("<th>a</th>"))
-        assertTrue(page.contains("<td>2</td>"))
+        assertTrue(page.contains("<th dir=\"auto\">a</th>"))
+        assertTrue(page.contains("<td dir=\"auto\">2</td>"))
     }
 
     @Test

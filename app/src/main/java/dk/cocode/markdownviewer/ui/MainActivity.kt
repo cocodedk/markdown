@@ -1,7 +1,9 @@
 package dk.cocode.markdownviewer.ui
 
+import android.content.ContentResolver
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +15,8 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.core.content.IntentCompat
+import dk.cocode.markdownviewer.R
 
 class MainActivity : ComponentActivity() {
 
@@ -46,8 +50,24 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun handle(intent: Intent?) {
-        val uri = intent?.data
-        if (intent?.action == Intent.ACTION_VIEW && uri != null) viewModel.open(uri)
+        if (intent == null) return
+        val uri = intent.data
+        when (intent.action) {
+            Intent.ACTION_VIEW -> if (uri != null) viewModel.open(uri)
+            Intent.ACTION_SEND -> handleShare(intent)
+        }
+    }
+
+    /** A shared file opens like a viewed one; shared text is the document itself. */
+    private fun handleShare(intent: Intent) {
+        val stream = IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java)
+        val text = intent.getCharSequenceExtra(Intent.EXTRA_TEXT)?.toString()
+        val subject = intent.getCharSequenceExtra(Intent.EXTRA_SUBJECT)?.toString()?.takeIf { it.isNotBlank() }
+        when {
+            stream != null && stream.scheme == ContentResolver.SCHEME_CONTENT ->viewModel.open(stream)
+            text != null -> viewModel.showText(subject ?: getString(R.string.shared_text), text)
+            else -> viewModel.showCouldNotOpen()
+        }
     }
 
     private fun isNightMode(): Boolean =

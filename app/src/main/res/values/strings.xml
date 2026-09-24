@@ -4,5 +4,6 @@
     <string name="open">Open</string>
     <string name="empty_hint">Open a Markdown file to read it.</string>
     <string name="could_not_open">This file could not be opened.</string>
+    <string name="shared_text">Shared text</string>
     <string name="too_large">This file is too large to show (over 2 MB).</string>
 </resources>

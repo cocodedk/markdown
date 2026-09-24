@@ -3,16 +3,22 @@ package dk.cocode.markdownviewer.render
 import org.commonmark.Extension
 import org.commonmark.ext.autolink.AutolinkExtension
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension
+import org.commonmark.ext.gfm.tables.TableCell
 import org.commonmark.ext.gfm.tables.TablesExtension
 import org.commonmark.ext.task.list.items.TaskListItemsExtension
+import org.commonmark.node.BlockQuote
 import org.commonmark.node.Code
 import org.commonmark.node.HardLineBreak
+import org.commonmark.node.Heading
 import org.commonmark.node.Image
+import org.commonmark.node.ListItem
 import org.commonmark.node.Node
+import org.commonmark.node.Paragraph
 import org.commonmark.node.SoftLineBreak
 import org.commonmark.node.Text
 import org.commonmark.parser.Parser
 import org.commonmark.renderer.NodeRenderer
+import org.commonmark.renderer.html.AttributeProvider
 import org.commonmark.renderer.html.HtmlNodeRendererContext
 import org.commonmark.renderer.html.HtmlRenderer
 
@@ -33,6 +39,7 @@ object MarkdownRenderer {
         .escapeHtml(true)
         .sanitizeUrls(true)
         .nodeRendererFactory { ImageAsText(it) }
+        .attributeProviderFactory { DirectionPerBlock }
         .build()
 
     fun render(markdown: String, dark: Boolean): String {
@@ -43,6 +50,16 @@ object MarkdownRenderer {
             append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n")
             append("<style>\n").append(PageStyle.css(dark)).append("</style>\n")
             append("</head>\n<body>\n").append(body).append("</body>\n</html>\n")
+        }
+    }
+}
+
+/** Text blocks take their direction from their first strong character; code is never matched. */
+private object DirectionPerBlock : AttributeProvider {
+
+    override fun setAttributes(node: Node, tagName: String, attributes: MutableMap<String, String>) {
+        if (node is Paragraph || node is Heading || node is ListItem || node is BlockQuote || node is TableCell) {
+            attributes["dir"] = "auto"
         }
     }
 }

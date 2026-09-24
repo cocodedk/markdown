@@ -44,7 +44,8 @@ object PageStyle {
             h1, h2 { border-bottom: 1px solid ${p.border}; padding-bottom: 0.3em; }
             a { color: ${p.link}; }
             code, pre { font-family: monospace; font-size: 0.9em; background: ${p.codeBackground}; }
-            code { padding: 0.15em 0.35em; border-radius: 4px; }
+            pre, code { direction: ltr; }
+            code { padding: 0.15em 0.35em; border-radius: 4px; unicode-bidi: isolate; }
             pre { padding: 12px; border-radius: 6px; overflow-x: auto; }
             pre code { padding: 0; background: none; }
             table { display: block; overflow-x: auto; border-collapse: collapse; margin: 1em 0; }
@@ -54,6 +55,7 @@ object PageStyle {
             hr { border: none; border-top: 1px solid ${p.border}; }
             li > input { margin-right: 0.4em; }
             img { display: none; }
+            body > :first-child { margin-top: 0; }
         """.trimIndent() + "\n"
     }
 }

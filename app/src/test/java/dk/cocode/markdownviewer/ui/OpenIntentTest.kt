@@ -60,7 +60,7 @@ class OpenIntentTest {
         assertTrue(state is ViewerState.Shown)
         val html = (state as ViewerState.Shown).html
         assertEquals(MarkdownRenderer.render(markdown, dark = false), html)
-        assertTrue(html.contains("<h1>Hello</h1>"))
+        assertTrue(html.contains("<h1 dir=\"auto\">Hello</h1>"))
         assertTrue(html.contains("سلام 😀"))
     }
 
@@ -106,7 +106,7 @@ class OpenIntentTest {
         controller.newIntent(viewIntent(second))
 
         val state = awaitLoaded(viewModel) as ViewerState.Shown
-        assertTrue(state.html.contains("<h1>Second</h1>"))
+        assertTrue(state.html.contains("<h1 dir=\"auto\">Second</h1>"))
         assertEquals(second, viewModel.uri)
     }
 
