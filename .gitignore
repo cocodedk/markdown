@@ -1,0 +1,20 @@
+*.iml
+.gradle
+local.properties
+/.idea/
+.DS_Store
+/build
+/app/build/
+/.kotlin/
+/captures
+.externalNativeBuild
+.cxx
+
+# Signing: never commit key material
+*.keystore
+*.jks
+keystore.properties
+
+# graph-loop workspace and local search index
+scratchpad/
+.zvec-grep/
