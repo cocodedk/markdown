@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A document with a folded corner and a bold "M↓" mark, inside the 66dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,26 L66,26 L78,38 L78,82 L32,82 Z" />
+    <path
+        android:fillColor="#C9D6E6"
+        android:pathData="M66,26 L66,38 L78,38 Z" />
+    <path
+        android:strokeColor="#1E3A5F"
+        android:strokeWidth="5"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:pathData="M39,68 L39,48 L48,59 L57,48 L57,68" />
+    <path
+        android:strokeColor="#1E3A5F"
+        android:strokeWidth="5"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:pathData="M67,48 L67,67 M62,61 L67,67 L72,61" />
+</vector>
