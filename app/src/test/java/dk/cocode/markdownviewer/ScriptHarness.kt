@@ -1,7 +1,9 @@
 package dk.cocode.markdownviewer
 
 import java.io.File
+import java.io.IOException
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 /** Runs the repository's hooks and scripts in throwaway git repositories, with stub tools. */
 object ScriptHarness {
@@ -29,9 +31,17 @@ object ScriptHarness {
             env.forEach { (name, value) -> if (value.isEmpty()) remove(name) else put(name, value) }
         }
         val process = builder.start()
-        process.outputStream.use { it.write(stdin.toByteArray()) }
+        // Fed on its own thread, so a script that writes a lot before reading cannot deadlock us.
+        val feeder = thread(name = "stdin: ${command.first()}") {
+            try {
+                process.outputStream.use { it.write(stdin.toByteArray()) }
+            } catch (_: IOException) {
+                // The script exited without reading all of its input: its choice, not an error.
+            }
+        }
         val out = process.inputStream.bufferedReader().readText()
         check(process.waitFor(60, TimeUnit.SECONDS)) { "timed out: $command" }
+        feeder.join()
         return Result(process.exitValue(), out)
     }
 
