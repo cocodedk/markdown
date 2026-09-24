@@ -1,0 +1,19 @@
+Markdown Viewer is a small, fast app that opens a Markdown file and shows it nicely, at once.
+
+Tap a .md file in a file manager, a mail or a chat, pick Markdown Viewer, and read it. Or open the app and pick a file with its Open button.
+
+<b>Features</b>
+<ul>
+<li>Opens Markdown from any app that shares or opens a file</li>
+<li>GitHub-flavoured Markdown: tables, strikethrough, autolinks and task lists</li>
+<li>Follows the system light or dark theme</li>
+</ul>
+
+<b>Private by design</b>
+<ul>
+<li>No permissions</li>
+<li>No network: remote images are not loaded</li>
+<li>No scripts run from a document</li>
+</ul>
+
+It only views: no editing, no accounts.

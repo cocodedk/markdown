@@ -1,0 +1,18 @@
+#!/bin/sh
+# Require a Conventional Commit subject: type(scope)?: text. Merge and revert messages pass.
+
+subject=$(head -n 1 "$1")
+
+case "$subject" in
+    "Merge "* | "Revert \""*) exit 0 ;;
+esac
+
+types='feat|fix|docs|chore|refactor|test|ci|build|perf|style|revert'
+if printf '%s\n' "$subject" | grep -Eq "^($types)(\([^()]+\))?!?: [^ ].*"; then
+    exit 0
+fi
+
+echo "commit-msg: the subject must be a Conventional Commit, type(scope)?: text"
+echo "  types: feat fix docs chore refactor test ci build perf style revert"
+echo "  got:   $subject"
+exit 1

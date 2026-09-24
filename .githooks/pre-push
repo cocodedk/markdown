@@ -1,0 +1,32 @@
+#!/bin/sh
+# Push only to github.com/cocodedk/, and never rewrite or delete main there.
+# Git passes the remote name and URL as arguments and one line per ref on stdin.
+
+url=$2
+
+case "$url" in
+    https://github.com/cocodedk/* | git@github.com:cocodedk/* | ssh://git@github.com/cocodedk/*) ;;
+    *)
+        echo "pre-push: refusing to push to '$url': only github.com/cocodedk/ repositories"
+        exit 1
+        ;;
+esac
+
+is_zero() {
+    printf '%s' "$1" | grep -Eq '^0+$'
+}
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$remote_ref" = "refs/heads/main" ] || continue
+    if is_zero "$local_sha"; then
+        echo "pre-push: refusing to delete main"
+        exit 1
+    fi
+    if ! is_zero "$remote_sha" && ! git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; then
+        echo "pre-push: refusing to rewrite main: $remote_sha is not an ancestor of $local_ref"
+        echo "  fetch and rebase onto origin/main first"
+        exit 1
+    fi
+done
+
+exit 0

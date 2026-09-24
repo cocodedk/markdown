@@ -1,0 +1,19 @@
+# Markdown Viewer
+
+> A small, fast Android app (Kotlin, Jetpack Compose) that opens Markdown files from any app and
+> renders GitHub-flavoured Markdown in light and dark. No permissions, no network. Apache-2.0,
+> made by Babak Bandpey at Cocode.
+
+Application id `dk.cocode.markdownviewer`. `render/` turns Markdown into an HTML page with pure
+functions; `ui/` hosts it in a WebView. All tests run on the JVM with Robolectric.
+
+## Docs
+
+- [README](https://github.com/cocodedk/markdown-viewer/blob/main/README.md): what it is, install, build, test, layout
+- [Brief](https://github.com/cocodedk/markdown-viewer/blob/main/spec/brief.md): the product brief
+- [Specs](https://github.com/cocodedk/markdown-viewer/tree/main/specs): one spec per feature
+
+## Optional
+
+- [Contributing](https://github.com/cocodedk/markdown-viewer/blob/main/CONTRIBUTING.md)
+- [Security](https://github.com/cocodedk/markdown-viewer/blob/main/SECURITY.md)

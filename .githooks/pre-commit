@@ -1,0 +1,32 @@
+#!/bin/sh
+# Refuse key material, local config and code files over 200 lines in the staged snapshot.
+# Kept light: no Gradle here, only git and POSIX tools.
+#
+# Paths come NUL-separated (-z), so git never quotes them: a quoted name such as
+# "r\303\251lease.keystore" would slip past the patterns. A name holding a newline is split
+# into pieces; every piece is still checked, and a piece that is not a staged file is refused.
+
+problems=$(git diff --cached --name-only -z --diff-filter=ACMRT | tr '\0' '\n' | while IFS= read -r f; do
+    lower=$(printf '%s' "$f" | tr '[:upper:]' '[:lower:]')
+    case "$lower" in
+        *.keystore | *.jks | keystore.properties | */keystore.properties | local.properties | */local.properties)
+            echo "  $f: key material and local config are never committed"
+            ;;
+        *.kt | *.kts | *.xml | *.toml | *.yml | *.sh)
+            if ! git cat-file -e ":$f" 2> /dev/null; then
+                echo "  $f: cannot read the staged file; rename it"
+            else
+                lines=$(git show ":$f" | wc -l | tr -d ' ')
+                if [ "$lines" -gt 200 ]; then
+                    echo "  $f: $lines lines, the limit is 200; split it"
+                fi
+            fi
+            ;;
+    esac
+done)
+
+if [ -n "$problems" ]; then
+    echo "pre-commit: refusing this commit:"
+    echo "$problems"
+    exit 1
+fi

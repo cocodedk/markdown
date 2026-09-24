@@ -1,0 +1,1 @@
+First release: open Markdown files from any app and read them in light or dark, with GitHub-flavoured tables, strikethrough, autolinks and task lists. No permissions, no network.
