@@ -60,6 +60,21 @@ class RepoFilesTest {
     }
 
     @Test
+    fun `workflows set up java 21`() {
+        for (path in workflows) {
+            val lines = text(path).lines()
+            val setups = lines.indices.filter { lines[it].contains("actions/setup-java@") }
+            assertTrue("$path sets up no java", setups.isNotEmpty())
+            for (at in setups) {
+                val with = lines.drop(at + 1).takeWhile { !it.trim().startsWith("- ") }
+                    .map { it.trim() }.filter { it.startsWith("java-version:") }
+                assertEquals("$path setup-java at line ${at + 1}", listOf("java-version: '21'"), with)
+            }
+            assertFalse("$path names java 17", lines.any { Regex("""java-version:.*17""").containsMatchIn(it) })
+        }
+    }
+
+    @Test
     fun `ci has a verify job`() {
         val ci = text(".github/workflows/ci.yml")
         assertTrue(Regex("""(?m)^ {2}verify:\s*$""").containsMatchIn(ci))

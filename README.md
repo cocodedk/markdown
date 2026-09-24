@@ -15,7 +15,7 @@ Download `MarkdownViewer.apk` from the latest release:
 
     ./gradlew assembleDebug
 
-The APK lands in `app/build/outputs/apk/debug/`. The build needs a full JDK 17 and the Android SDK.
+The APK lands in `app/build/outputs/apk/debug/`. The build needs a full JDK 21 or newer and the Android SDK.
 
 ## Testing
 
