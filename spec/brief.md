@@ -20,6 +20,7 @@ It only views: no editing, no accounts, no network.
 
 1. `specs/01-viewer.md`: the Gradle project and the viewer.
 2. `specs/02-github.md`: everything the public repository needs.
+3. `specs/03-reading-comfort.md`: right-to-left text, the share sheet, zoom.
 
 ## Left out on purpose
 
