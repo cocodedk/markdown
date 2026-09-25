@@ -9,6 +9,7 @@ functions; `ui/` hosts it in a WebView. All tests run on the JVM with Robolectri
 
 ## Docs
 
+- [Website](https://markdown.cocode.dk/): what the app does and the download, in English and [Persian](https://markdown.cocode.dk/fa/)
 - [README](https://github.com/cocodedk/markdown-viewer/blob/main/README.md): what it is, install, build, test, layout
 - [Brief](https://github.com/cocodedk/markdown-viewer/blob/main/spec/brief.md): the product brief
 - [Specs](https://github.com/cocodedk/markdown-viewer/tree/main/specs): one spec per feature

@@ -1,0 +1,121 @@
+/* Markdown Viewer site. The page reads like a rendered Markdown document:
+   each heading keeps its source mark (#, ##, -, >) hanging in the margin. */
+:root {
+  --paper: #f5f8fb;
+  --sheet: #ffffff;
+  --ink: #14243a;
+  --navy: #1e3a5f;
+  --mark: #8a9bb0;
+  --fold: #c9d6e6;
+  --link: #2f6fb3;
+  --rule: #dde5ee;
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --gutter: 3.2rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1b2b;
+    --sheet: #152438;
+    --ink: #dce5ef;
+    --navy: #9cc0e8;
+    --mark: #5f7590;
+    --fold: #2a4262;
+    --link: #8cc1ff;
+    --rule: #22364f;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.125rem/1.65 var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+code { font: 0.86em var(--mono); background: var(--sheet); border: 1px solid var(--rule);
+  border-radius: 4px; padding: 0.05em 0.35em; }
+
+main { max-width: calc(42rem + var(--gutter)); margin: 0 auto; padding: 3.5rem 1rem 4rem; }
+section { padding-left: var(--gutter); margin: 0 0 3.5rem; }
+
+/* The hanging source marks. */
+h1, h2 { position: relative; color: var(--navy); font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.3rem, 7vw, 3.4rem); line-height: 1.08; margin: 0 0 1.2rem; }
+h2 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.9rem; }
+[data-md]::before {
+  content: attr(data-md);
+  position: absolute;
+  right: 100%;
+  margin-right: 0.9rem;
+  font: 400 0.62em/inherit var(--mono);
+  color: var(--mark);
+  white-space: nowrap;
+}
+h1[data-md]::before { font-size: 0.5em; line-height: 2.05; }
+h2[data-md]::before { line-height: 1.7; }
+p { margin: 0 0 1rem; }
+.lede { font-size: 1.3rem; line-height: 1.5; max-width: 34rem; }
+
+ul.md { list-style: none; padding: 0; margin: 0 0 1rem; }
+ul.md li { position: relative; margin: 0 0 0.55rem; }
+ul.md li::before { content: "-"; position: absolute; right: 100%; margin-right: 0.9rem;
+  font-family: var(--mono); color: var(--mark); }
+ul.md li.done::before { content: "- [x]"; }
+
+blockquote { position: relative; margin: 0; padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 3px solid var(--fold); }
+blockquote::before { content: ">"; position: absolute; right: 100%; margin-right: 0.9rem;
+  font-family: var(--mono); color: var(--mark); }
+
+/* The one bold moment: the same text as source and as rendered. */
+.pair { display: grid; grid-template-columns: 1fr 1fr; margin: 2.2rem 0 0;
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%); position: relative; }
+.pair::after { content: ""; position: absolute; top: 0; right: 0; width: 28px; height: 28px;
+  background: linear-gradient(225deg, var(--paper) 50%, var(--fold) 50%); }
+.pair > div { padding: 1.2rem 1.3rem; min-width: 0; }
+.src { font: 0.82rem/1.7 var(--mono); color: var(--ink); white-space: pre-wrap;
+  border-right: 1px solid var(--rule); background: color-mix(in srgb, var(--sheet) 80%, var(--paper)); }
+.src i { font-style: normal; color: var(--mark); }
+.out { font: 0.95rem/1.5 system-ui, sans-serif; }
+.out h3 { font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--ink); }
+.out table { border-collapse: collapse; margin: 0.6rem 0; font-size: 0.85rem; }
+.out th, .out td { border: 1px solid var(--rule); padding: 0.25rem 0.55rem; text-align: start; }
+.out ul { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+.out input { margin: 0 0.4rem 0 0; accent-color: var(--navy); }
+.out del { color: var(--mark); }
+
+.button { display: inline-block; font: 600 1rem/1 system-ui, sans-serif; text-decoration: none;
+  background: var(--navy); color: var(--sheet); padding: 0.85rem 1.3rem; border-radius: 8px;
+  margin: 0.4rem 1rem 0.4rem 0; }
+.button:hover { filter: brightness(1.12); }
+.quiet { font-size: 0.95rem; color: var(--mark); }
+
+table.feat { border-collapse: collapse; width: 100%; font-size: 1rem; margin: 0 0 1rem; }
+table.feat th, table.feat td { text-align: start; padding: 0.5rem 0.7rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.feat th { font-weight: 600; color: var(--navy); white-space: nowrap; }
+
+/* Persian: same page, right to left. */
+[dir="rtl"] body, [dir="rtl"] .out { font-family: "Vazirmatn", system-ui, sans-serif; }
+[dir="rtl"] section { padding-left: 0; padding-right: var(--gutter); }
+[dir="rtl"] [data-md]::before, [dir="rtl"] ul.md li::before, [dir="rtl"] blockquote::before {
+  right: auto; left: 100%; margin-right: 0; margin-left: 0.9rem; direction: ltr; }
+[dir="rtl"] blockquote { padding: 0.2rem 1rem 0.2rem 0; border-left: 0; border-right: 3px solid var(--fold); }
+[dir="rtl"] .src { border-right: 0; border-left: 1px solid var(--rule); unicode-bidi: plaintext; }
+[dir="rtl"] .button { margin: 0.4rem 0 0.4rem 1rem; }
+[dir="rtl"] .out input { margin: 0 0 0 0.4rem; }
+[dir="rtl"] table.feat th, [dir="rtl"] table.feat td { padding: 0.5rem 0 0.5rem 0.7rem; }
+
+@media (max-width: 640px) {
+  :root { --gutter: 2.1rem; }
+  main { padding-top: 2.2rem; }
+  .pair { grid-template-columns: 1fr; }
+  .src, [dir="rtl"] .src { border: 0; border-bottom: 1px solid var(--rule); }
+  .lede { font-size: 1.15rem; }
+}
