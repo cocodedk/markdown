@@ -28,6 +28,8 @@
   }
 }
 * { box-sizing: border-box; }
+/* The brand frame lines up with the page's own column. */
+cocode-head, cocode-foot { --cocode-max: calc(42rem + var(--gutter)); --cocode-gutter: 1rem; }
 body {
   margin: 0;
   background: var(--paper);
@@ -79,7 +81,7 @@ blockquote::before { content: ">"; position: absolute; right: 100%; margin-right
 .pair::after { content: ""; position: absolute; top: 0; right: 0; width: 28px; height: 28px;
   background: linear-gradient(225deg, var(--paper) 50%, var(--fold) 50%); }
 .pair > div { padding: 1.2rem 1.3rem; min-width: 0; }
-.src { font: 0.82rem/1.7 var(--mono); color: var(--ink); white-space: pre-wrap;
+.src { font: 0.82rem/1.7 var(--mono); color: var(--ink); white-space: pre-wrap; font-variant-ligatures: none;
   border-right: 1px solid var(--rule); background: color-mix(in srgb, var(--sheet) 80%, var(--paper)); }
 .src i { font-style: normal; color: var(--mark); }
 .out { font: 0.95rem/1.5 system-ui, sans-serif; }
@@ -107,7 +109,7 @@ table.feat th { font-weight: 600; color: var(--navy); white-space: nowrap; }
 [dir="rtl"] [data-md]::before, [dir="rtl"] ul.md li::before, [dir="rtl"] blockquote::before {
   right: auto; left: 100%; margin-right: 0; margin-left: 0.9rem; direction: ltr; }
 [dir="rtl"] blockquote { padding: 0.2rem 1rem 0.2rem 0; border-left: 0; border-right: 3px solid var(--fold); }
-[dir="rtl"] .src { border-right: 0; border-left: 1px solid var(--rule); unicode-bidi: plaintext; }
+[dir="rtl"] .src { border-right: 0; border-left: 1px solid var(--rule); }
 [dir="rtl"] .button { margin: 0.4rem 0 0.4rem 1rem; }
 [dir="rtl"] .out input { margin: 0 0 0 0.4rem; }
 [dir="rtl"] table.feat th, [dir="rtl"] table.feat td { padding: 0.5rem 0 0.5rem 0.7rem; }
