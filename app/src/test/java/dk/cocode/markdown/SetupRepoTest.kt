@@ -1,7 +1,7 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
-import dk.cocode.markdownviewer.ScriptHarness.ok
-import dk.cocode.markdownviewer.ScriptHarness.run
+import dk.cocode.markdown.ScriptHarness.ok
+import dk.cocode.markdown.ScriptHarness.run
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -63,9 +63,9 @@ class SetupRepoTest {
         assertEquals(result.out, 0, result.code)
         val edits = calls().filter { it.startsWith("gh repo edit") }
         assertTrue(edits.isNotEmpty())
-        edits.forEach { assertTrue(it, it.contains("gh repo edit cocodedk/markdown-viewer ")) }
+        edits.forEach { assertTrue(it, it.contains("gh repo edit cocodedk/markdown ")) }
         val all = edits.joinToString(" ")
-        listOf("android", "markdown", "markdown-viewer", "kotlin", "jetpack-compose", "f-droid")
+        listOf("android", "markdown", "markdown-editor", "kotlin", "jetpack-compose", "f-droid")
             .forEach { assertTrue("topic $it", all.contains("--add-topic $it")) }
         listOf("--enable-squash-merge", "--enable-rebase-merge", "--enable-merge-commit=false", "--delete-branch-on-merge")
             .forEach { assertTrue(it, all.contains(it)) }
@@ -78,7 +78,7 @@ class SetupRepoTest {
         assertEquals(0, setupRepo(verifyRuns = 1).code)
         assertFalse(log.readText().contains("someone-else"))
         calls().filter { it.startsWith("gh repo") || it.startsWith("gh api") }
-            .forEach { assertTrue(it, it.contains("cocodedk/markdown-viewer")) }
+            .forEach { assertTrue(it, it.contains("cocodedk/markdown")) }
     }
 
     @Test
@@ -94,7 +94,7 @@ class SetupRepoTest {
         val result = setupRepo(verifyRuns = 1)
         assertEquals(result.out, 0, result.code)
         val put = calls().single { it.contains("protection") }
-        assertTrue(put.contains("--method PUT repos/cocodedk/markdown-viewer/branches/main/protection"))
+        assertTrue(put.contains("--method PUT repos/cocodedk/markdown/branches/main/protection"))
         val body = log.readText().replace(Regex("\\s+"), "")
         listOf(
             "\"contexts\":[\"verify\"]",

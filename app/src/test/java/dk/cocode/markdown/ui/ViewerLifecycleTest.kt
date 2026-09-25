@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.app.Application
 import android.content.ContentProvider
@@ -11,7 +11,7 @@ import android.os.Looper
 import android.provider.OpenableColumns
 import androidx.lifecycle.ViewModelProvider
 import androidx.test.core.app.ApplicationProvider
-import dk.cocode.markdownviewer.render.MarkdownRenderer
+import dk.cocode.markdown.render.MarkdownRenderer
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertSame

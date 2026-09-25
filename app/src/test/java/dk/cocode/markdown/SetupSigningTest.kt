@@ -1,6 +1,6 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
-import dk.cocode.markdownviewer.ScriptHarness.run
+import dk.cocode.markdown.ScriptHarness.run
 import java.io.File
 import java.util.Base64
 import org.junit.Assert.assertEquals
@@ -76,7 +76,7 @@ class SetupSigningTest {
         if (!ghLog.exists()) return emptyMap()
         val lines = ghLog.readLines()
         return lines.withIndex().filter { it.value.startsWith("gh secret set ") }.associate { (i, line) ->
-            assertTrue(line, line.endsWith("--repo cocodedk/markdown-viewer"))
+            assertTrue(line, line.endsWith("--repo cocodedk/markdown"))
             line.split(" ")[3] to lines[i + 1].removePrefix("stdin=")
         }
     }

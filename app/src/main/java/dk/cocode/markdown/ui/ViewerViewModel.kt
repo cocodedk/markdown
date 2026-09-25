@@ -1,12 +1,12 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.app.Application
 import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import dk.cocode.markdownviewer.R
-import dk.cocode.markdownviewer.render.MarkdownRenderer
+import dk.cocode.markdown.R
+import dk.cocode.markdown.render.MarkdownRenderer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow

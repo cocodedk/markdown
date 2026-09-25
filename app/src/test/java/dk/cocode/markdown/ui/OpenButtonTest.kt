@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.content.Intent
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -21,7 +21,7 @@ class OpenButtonTest {
 
     @Test
     fun `with no document the title is the app name`() {
-        compose.onNodeWithText("Markdown Viewer").assertExists()
+        compose.onNodeWithText("Markdown").assertExists()
     }
 
     @Test

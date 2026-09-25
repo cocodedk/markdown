@@ -1,7 +1,7 @@
-# Markdown Viewer — working notes
+# Markdown — working notes
 
 A small, fast Android app that opens and shows Markdown files. Application id and namespace
-`dk.cocode.markdownviewer`. The product brief is `spec/brief.md`; each feature the loop builds is
+`dk.cocode.markdown`. The product brief is `spec/brief.md`; each feature the loop builds is
 one file in `specs/`. Do not edit `spec/` or `specs/` from a feature: they are the owner's.
 
 The machine-level mechanics (the suite, the build, the artifact, the paths a check needs) are in
@@ -20,14 +20,14 @@ no `adb` is needed for a check.
 
 ## Layout
 
-`app/src/main/java/dk/cocode/markdownviewer/`
+`app/src/main/java/dk/cocode/markdown/`
 
 | Package | Contents | Android imports? |
 |---|---|---|
 | `render` | Markdown text to an HTML page. Pure functions. | no |
 | `ui` | The activity, Compose screens, the WebView host. | yes |
 
-Tests live in `app/src/test/java/dk/cocode/markdownviewer/`, mirroring that layout.
+Tests live in `app/src/test/java/dk/cocode/markdown/`, mirroring that layout.
 `render/**` imports nothing from `android.*` or `androidx.*`.
 
 ## House rules

@@ -1,4 +1,4 @@
-/* Markdown Viewer site. The page reads like a rendered Markdown document:
+/* Markdown site. The page reads like a rendered Markdown document:
    each heading keeps its source mark (#, ##, -, >) hanging in the margin. */
 :root {
   --paper: #f5f8fb;

@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.webkit.WebView
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import dk.cocode.markdownviewer.R
+import dk.cocode.markdown.R
 
 const val OPEN_BUTTON_TAG = "open-button"
 

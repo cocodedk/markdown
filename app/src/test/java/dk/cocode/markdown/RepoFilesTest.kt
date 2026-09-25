@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
 import java.io.File
 import org.junit.Assert.assertEquals
@@ -85,7 +85,7 @@ class RepoFilesTest {
         assertFalse("release has a push trigger", release.contains("push"))
         assertFalse("release has a tags trigger", release.contains("tags"))
         assertTrue(release.contains("cancel-in-progress: false"))
-        assertTrue(release.contains("MarkdownViewer.apk"))
+        assertTrue(release.contains("Markdown.apk"))
         assertTrue("release does not run its checks", release.contains("sh scripts/release-check.sh"))
     }
 
@@ -97,8 +97,8 @@ class RepoFilesTest {
             "sh scripts/release-check.sh",
             "sh scripts/release-keystore.sh",
             "./gradlew --no-daemon assembleRelease",
-            "cp app/build/outputs/apk/release/app-release.apk MarkdownViewer.apk",
-            "apksigner\" verify --print-certs MarkdownViewer.apk",
+            "cp app/build/outputs/apk/release/app-release.apk Markdown.apk",
+            "apksigner\" verify --print-certs Markdown.apk",
             "if: always()\n        run: rm -f \"\$RUNNER_TEMP/release.keystore\"",
             "tag_name: v\${{ steps.version.outputs.name }}",
         ).map { step -> release.indexOf(step).also { assertTrue("release lacks: $step", it >= 0) } }
@@ -108,7 +108,7 @@ class RepoFilesTest {
             "group: release",
             "target_commitish: \${{ github.sha }}",
             "generate_release_notes: true",
-            "files: MarkdownViewer.apk",
+            "files: Markdown.apk",
         ).forEach { assertTrue("release lacks: $it", release.contains(it)) }
     }
 

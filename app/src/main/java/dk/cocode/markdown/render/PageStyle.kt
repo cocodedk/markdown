@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.render
+package dk.cocode.markdown.render
 
 /** The inline stylesheet of a rendered page, in a light and a dark palette. */
 object PageStyle {

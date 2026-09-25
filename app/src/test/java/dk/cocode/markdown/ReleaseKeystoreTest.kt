@@ -1,6 +1,6 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
-import dk.cocode.markdownviewer.ScriptHarness.run
+import dk.cocode.markdown.ScriptHarness.run
 import java.io.File
 import java.util.Base64
 import org.junit.Assert.assertArrayEquals

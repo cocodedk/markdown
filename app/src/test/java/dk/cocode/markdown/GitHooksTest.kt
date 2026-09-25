@@ -1,8 +1,8 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
-import dk.cocode.markdownviewer.ScriptHarness.commit
-import dk.cocode.markdownviewer.ScriptHarness.ok
-import dk.cocode.markdownviewer.ScriptHarness.run
+import dk.cocode.markdown.ScriptHarness.commit
+import dk.cocode.markdown.ScriptHarness.ok
+import dk.cocode.markdown.ScriptHarness.run
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
@@ -36,7 +36,7 @@ class GitHooksTest {
         run(repo, listOf("sh", ".githooks/pre-push", "origin", url), stdin = refs.joinToString("") { "$it\n" })
 
     private val zero = "0".repeat(40)
-    private val url = "https://github.com/cocodedk/markdown-viewer.git"
+    private val url = "https://github.com/cocodedk/markdown.git"
 
     @Test
     fun `commit-msg accepts conventional, merge and revert subjects`() {
@@ -137,13 +137,13 @@ class GitHooksTest {
     fun `pre-push refuses remotes outside github cocodedk`() {
         val sha = commit(repo, "feat: a")
         listOf(
-            "https://gitlab.com/cocodedk/markdown-viewer.git",
+            "https://gitlab.com/cocodedk/markdown.git",
             "https://github.com/someone/markdown-viewer.git",
             "https://evil.example/github.com/cocodedk/x.git",
         ).forEach {
             assertNotEquals("should refuse $it", 0, prePush(it, "refs/heads/x $sha refs/heads/x $zero").code)
         }
-        assertEquals(0, prePush("git@github.com:cocodedk/markdown-viewer.git", "refs/heads/x $sha refs/heads/x $zero").code)
+        assertEquals(0, prePush("git@github.com:cocodedk/markdown.git", "refs/heads/x $sha refs/heads/x $zero").code)
     }
 
     @Test
