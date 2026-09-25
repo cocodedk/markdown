@@ -4,10 +4,11 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** A workflow `uses:` value: one of the four allowed actions, at a full commit SHA, with a `# v…` comment. */
+/** A workflow `uses:` value: one of the allowed actions, at a full commit SHA, with a `# v…` comment. */
 object ActionPin {
     private val actions = listOf(
         "actions/checkout", "actions/setup-java", "actions/upload-artifact", "softprops/action-gh-release",
+        "actions/configure-pages", "actions/upload-pages-artifact", "actions/deploy-pages",
     )
     private val pattern = Regex(
         """^(${actions.joinToString("|") { Regex.escape(it) }})@[0-9a-f]{40} # v\S+$""",
@@ -26,6 +27,13 @@ class ActionPinTest {
         assertTrue(ActionPin.isValid("actions/setup-java@$sha # v6"))
         assertTrue(ActionPin.isValid("actions/upload-artifact@$sha # v5.0.0"))
         assertTrue(ActionPin.isValid("softprops/action-gh-release@$sha # v3.1.0"))
+    }
+
+    @Test
+    fun `the pages actions are allowed`() {
+        assertTrue(ActionPin.isValid("actions/configure-pages@$sha # v6.0.0"))
+        assertTrue(ActionPin.isValid("actions/upload-pages-artifact@$sha # v5.0.0"))
+        assertTrue(ActionPin.isValid("actions/deploy-pages@$sha # v4.0.5"))
     }
 
     @Test
@@ -51,7 +59,7 @@ class ActionPinTest {
     }
 
     @Test
-    fun `an action outside the four is not allowed`() {
+    fun `an action outside the list is not allowed`() {
         assertFalse(ActionPin.isValid("actions/cache@$sha # v4.2.0"))
         assertFalse(ActionPin.isValid("evil/actions/checkout@$sha # v7.0.0"))
     }
