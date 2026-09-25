@@ -4,6 +4,7 @@ import android.webkit.WebView
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -64,7 +65,8 @@ fun ViewerScreen(state: ViewerState, actions: ViewerActions) {
             )
         },
     ) { padding ->
-        Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
+        // Consumed here, so the editor's keyboard padding does not count the navigation bar twice.
+        Box(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding), contentAlignment = Alignment.Center) {
             when (state) {
                 ViewerState.Empty -> Prompt(stringResource(R.string.empty_hint), actions)
                 ViewerState.Loading -> CircularProgressIndicator()

@@ -25,10 +25,11 @@ no `adb` is needed for a check.
 | Package | Contents | Android imports? |
 |---|---|---|
 | `render` | Markdown text to an HTML page. Pure functions. | no |
+| `edit` | Markdown formatting of the editor's text and selection. Pure functions. | no |
 | `ui` | The activity, Compose screens, the WebView host. | yes |
 
 Tests live in `app/src/test/java/dk/cocode/markdown/`, mirroring that layout.
-`render/**` imports nothing from `android.*` or `androidx.*`.
+`render/**` and `edit/**` import nothing from `android.*` or `androidx.*`.
 
 ## House rules
 
