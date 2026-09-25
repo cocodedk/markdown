@@ -1,7 +1,7 @@
 # Markdown
 
 > A small, fast Android app (Kotlin, Jetpack Compose) that opens Markdown files from any app and
-> renders GitHub-flavoured Markdown in light and dark. No permissions, no network. Apache-2.0,
+> renders GitHub-flavoured Markdown in light and dark, and edits and saves it. No permissions, no network. Apache-2.0,
 > made by Babak Bandpey at Cocode.
 
 Application id `dk.cocode.markdown`. `render/` turns Markdown into an HTML page with pure
