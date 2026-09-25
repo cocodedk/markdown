@@ -6,10 +6,13 @@ import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInputSelection
 import androidx.compose.ui.test.performTextReplacement
+import androidx.compose.ui.text.TextRange
 import androidx.lifecycle.ViewModelProvider
 import androidx.test.core.app.ApplicationProvider
 import org.junit.Assert.assertEquals
@@ -80,6 +83,29 @@ class EditorScreenTest {
 
         compose.onNodeWithText("Discard your changes?").assertDoesNotExist()
         assertTrue(viewModel.state.value is ViewerState.Shown)
+    }
+
+    @Test
+    fun `the bold button wraps the selected word and marks the document unsaved`() {
+        compose.runOnUiThread { viewModel.showText("Notes", "say hi"); viewModel.edit() }
+        compose.onNodeWithTag(EDITOR_TAG).performTextInputSelection(TextRange(4, 6))
+
+        compose.onNodeWithContentDescription("Bold").performClick()
+        compose.waitForIdle()
+
+        compose.onNodeWithTag(EDITOR_TAG).assertTextEquals("say **hi**")
+        val state = viewModel.state.value as ViewerState.Editing
+        assertEquals("say **hi**", state.text)
+        assertTrue(state.dirty)
+    }
+
+    @Test
+    fun `every formatting button is labelled for screen readers`() {
+        compose.runOnUiThread { viewModel.newDocument() }
+        listOf(
+            "Bold", "Italic", "Strikethrough", "Heading", "Bulleted list",
+            "Numbered list", "Task list", "Quote", "Code", "Link",
+        ).forEach { compose.onNodeWithContentDescription(it).assertExists() }
     }
 
     @Test

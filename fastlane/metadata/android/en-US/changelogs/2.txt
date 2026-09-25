@@ -1,0 +1,1 @@
+A formatting bar in the editor: bold, italic, strikethrough, headings, bulleted, numbered and task lists, quotes, code and links.
