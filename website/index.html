@@ -24,7 +24,7 @@
 <meta property="og:locale:alternate" content="fa_IR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Markdown — read and edit .md files on Android">
-<meta name="twitter:description" content="Tap a .md file in any app and read it, rendered. No permissions, no network.">
+<meta name="twitter:description" content="Tap a .md file in any app and read it, rendered, or edit it. No permissions, no network.">
 <meta name="twitter:image" content="https://markdown.cocode.dk/og.png">
 <meta name="twitter:image:alt" content="Markdown source beside the same text rendered.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
 <script type="module" src="https://brand.cocode.dk/v1.js"></script>
+<script type="module" src="frame-accent.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,11 +55,11 @@
 </script>
 </head>
 <body>
-<cocode-head project="Markdown" accent="#1e3a5f" links="Download:#get,Source:https://github.com/cocodedk/markdown"><a href="https://cocode.dk">cocode.dk</a></cocode-head>
+<cocode-head dark="auto" project="Markdown" accent="#1e3a5f" links="Download:#get,Source:https://github.com/cocodedk/markdown"><a href="https://cocode.dk">cocode.dk</a></cocode-head>
 <main>
   <section>
     <h1 data-md="#">Markdown</h1>
-    <p class="lede">Someone sends you a <code>README.md</code>. Tap it, pick “Markdown”, and read it the way it was written to look.</p>
+    <p class="lede">Someone sends you a <code>README.md</code>. Tap it, pick “Markdown”, and read it the way it was written to look. Fix a line, format it, save it.</p>
     <a class="button" href="https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk">Download the APK</a>
     <span class="quiet">Android 8.0 or newer. Free, Apache-2.0.</span>
     <div class="pair" aria-label="The same note as Markdown source and as the Markdown app shows it">
@@ -112,6 +113,6 @@
     <p>Every release and its notes are on <a href="https://github.com/cocodedk/markdown/releases">GitHub</a>. The source is <a href="https://github.com/cocodedk/markdown">open</a>, and every test runs on a plain JVM.</p>
   </section>
 </main>
-<cocode-foot project="Markdown" repo="cocodedk/markdown"><a href="https://cocode.dk">Made by Babak Bandpey at Cocode</a></cocode-foot>
+<cocode-foot dark="auto" project="Markdown" repo="cocodedk/markdown"><a href="https://cocode.dk">Made by Babak Bandpey at Cocode</a></cocode-foot>
 </body>
 </html>
