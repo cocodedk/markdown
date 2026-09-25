@@ -6,6 +6,11 @@ A small, fast Android app that opens Markdown files and shows them nicely.
 - GitHub-flavoured Markdown (tables, strikethrough, autolinks, task lists) in light and dark.
 - No permissions and no network.
 
+## Website
+
+- [English](https://markdown.cocode.dk/)
+- [فارسی (Persian)](https://markdown.cocode.dk/fa/)
+
 ## Install
 
 Download `MarkdownViewer.apk` from the latest release:
@@ -31,7 +36,8 @@ Every test runs on the JVM; Robolectric hosts the Android and Compose tests, so 
 | `app/src/main/java/dk/cocode/markdownviewer/ui` | The activity, Compose screens, the WebView host. |
 | `app/src/test/java/dk/cocode/markdownviewer` | The tests, mirroring the layout above. |
 | `spec/brief.md`, `specs/` | The product brief and one spec per feature. |
-| `.github/workflows` | CI (`ci.yml`) and the manual release (`release-apk.yml`). |
+| `.github/workflows` | CI (`ci.yml`), the manual release (`release-apk.yml`) and the site deploy (`deploy-pages.yml`). |
+| `website` | The project site at <https://markdown.cocode.dk>, English and Persian. `og.png` is rendered from `og-image.html`. |
 | `.githooks`, `scripts` | Git hooks and the owner's setup scripts. |
 | `fastlane/metadata` | F-Droid store metadata. |
 
