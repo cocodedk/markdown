@@ -2,6 +2,7 @@ package dk.cocode.markdown.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.AlertDialog
@@ -23,7 +24,8 @@ const val EDITOR_TAG = "editor"
 /** The Markdown source as plain, editable text. */
 @Composable
 fun Editor(state: ViewerState.Editing, onChange: (String) -> Unit) {
-    Column(Modifier.fillMaxSize()) {
+    // Edge to edge, the window does not shrink for the keyboard, so the editor makes room itself.
+    Column(Modifier.fillMaxSize().imePadding()) {
         state.error?.let {
             Text(
                 stringResource(it),
