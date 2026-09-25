@@ -16,7 +16,11 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.content.IntentCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import dk.cocode.markdown.R
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -24,6 +28,10 @@ class MainActivity : ComponentActivity() {
 
     private val openDocument = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let(viewModel::open)
+    }
+
+    private val createDocument = registerForActivityResult(ActivityResultContracts.CreateDocument(MARKDOWN)) { uri ->
+        uri?.let(viewModel::saveAs)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +42,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()) {
                 val state by viewModel.state.collectAsState()
-                ViewerScreen(state, onOpen = ::pickDocument)
+                ViewerScreen(state, actions)
             }
         }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) { viewModel.saveAsRequests.collect { createDocument.launch(it) } }
+        }
+    }
+
+    private val actions by lazy {
+        ViewerActions(
+            onOpen = ::pickDocument,
+            onNew = viewModel::newDocument,
+            onEdit = viewModel::edit,
+            onChange = viewModel::change,
+            onSave = viewModel::save,
+            onDone = viewModel::done,
+        )
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -54,6 +76,7 @@ class MainActivity : ComponentActivity() {
         val uri = intent.data
         when (intent.action) {
             Intent.ACTION_VIEW -> if (uri != null) viewModel.open(uri)
+            Intent.ACTION_EDIT -> if (uri != null) viewModel.open(uri, edit = true)
             Intent.ACTION_SEND -> handleShare(intent)
         }
     }
@@ -76,5 +99,7 @@ class MainActivity : ComponentActivity() {
     companion object {
         /** Many pickers label `.md` as octet-stream. */
         val PICKER_TYPES = arrayOf("text/*", "application/octet-stream")
+
+        const val MARKDOWN = "text/markdown"
     }
 }

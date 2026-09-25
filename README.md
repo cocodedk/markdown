@@ -1,9 +1,10 @@
 # Markdown
 
-A small, fast Android app that opens Markdown files and shows them nicely.
+A small, fast Android app that opens Markdown files, shows them nicely and lets you edit them.
 
 - Opens from any app: tap a `.md` file in a file manager, a mail or a chat and pick “Markdown”.
 - GitHub-flavoured Markdown (tables, strikethrough, autolinks, task lists) in light and dark.
+- Edit the source and save it back, or start a new file with New.
 - No permissions and no network.
 
 ## Website

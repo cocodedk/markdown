@@ -1,1 +1,1 @@
-Open and read Markdown files from any app, in light and dark
+Open, read and edit Markdown files from any app, in light and dark
