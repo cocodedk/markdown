@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Markdown Viewer</string>
+    <string name="app_name">Markdown</string>
     <string name="open">Open</string>
     <string name="empty_hint">Open a Markdown file to read it.</string>
     <string name="could_not_open">This file could not be opened.</string>

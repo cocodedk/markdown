@@ -4,7 +4,7 @@
 # Passwords are read without echo and sent to gh on stdin; nothing secret is printed.
 set -eu
 
-REPO=cocodedk/markdown-viewer
+REPO=cocodedk/markdown
 KEYSTORE_FILE=${KEYSTORE_FILE:-$HOME/release.keystore}
 KEYSTORE_ALIAS=${KEYSTORE_ALIAS:-android}
 

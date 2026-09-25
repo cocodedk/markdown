@@ -3,7 +3,7 @@
 # The repository is named here once; no git remote is read or trusted.
 set -eu
 
-REPO=cocodedk/markdown-viewer
+REPO=cocodedk/markdown
 root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 
 step() {
@@ -16,7 +16,7 @@ gh auth status > /dev/null 2>&1 || { echo "setup-repo: run 'gh auth login' first
 step "Description and topics on $REPO"
 gh repo edit "$REPO" \
     --description "A small, fast Android app that opens and shows Markdown files. No permissions, no network." \
-    --add-topic android --add-topic markdown --add-topic markdown-viewer \
+    --add-topic android --add-topic markdown --add-topic markdown-editor \
     --add-topic kotlin --add-topic jetpack-compose --add-topic f-droid
 
 step "Merge settings: squash and rebase only, delete branch on merge"

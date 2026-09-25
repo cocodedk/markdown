@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.app.Activity
 import android.content.ActivityNotFoundException

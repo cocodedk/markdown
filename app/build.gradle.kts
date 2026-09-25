@@ -9,11 +9,11 @@ val signingEnv = listOf("KEYSTORE_PATH", "KEYSTORE_PASSWORD", "KEY_ALIAS", "KEY_
 val canSignRelease = signingEnv.all { it.isNotEmpty() } && file(signingEnv[0]).exists()
 
 android {
-    namespace = "dk.cocode.markdownviewer"
+    namespace = "dk.cocode.markdown"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dk.cocode.markdownviewer"
+        applicationId = "dk.cocode.markdown"
         minSdk = 26
         targetSdk = 36
         versionName = property("VERSION_NAME") as String

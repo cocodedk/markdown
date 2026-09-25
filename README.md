@@ -1,8 +1,8 @@
-# Markdown Viewer
+# Markdown
 
 A small, fast Android app that opens Markdown files and shows them nicely.
 
-- Opens from any app: tap a `.md` file in a file manager, a mail or a chat and pick Markdown Viewer.
+- Opens from any app: tap a `.md` file in a file manager, a mail or a chat and pick “Markdown”.
 - GitHub-flavoured Markdown (tables, strikethrough, autolinks, task lists) in light and dark.
 - No permissions and no network.
 
@@ -13,8 +13,8 @@ A small, fast Android app that opens Markdown files and shows them nicely.
 
 ## Install
 
-Download `MarkdownViewer.apk` from the latest release:
-<https://github.com/cocodedk/markdown-viewer/releases/latest/download/MarkdownViewer.apk>
+Download `Markdown.apk` from the latest release:
+<https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk>
 
 ## Building
 
@@ -32,9 +32,9 @@ Every test runs on the JVM; Robolectric hosts the Android and Compose tests, so 
 
 | Path | Contents |
 |---|---|
-| `app/src/main/java/dk/cocode/markdownviewer/render` | Markdown text to an HTML page. Pure functions, no Android imports. |
-| `app/src/main/java/dk/cocode/markdownviewer/ui` | The activity, Compose screens, the WebView host. |
-| `app/src/test/java/dk/cocode/markdownviewer` | The tests, mirroring the layout above. |
+| `app/src/main/java/dk/cocode/markdown/render` | Markdown text to an HTML page. Pure functions, no Android imports. |
+| `app/src/main/java/dk/cocode/markdown/ui` | The activity, Compose screens, the WebView host. |
+| `app/src/test/java/dk/cocode/markdown` | The tests, mirroring the layout above. |
 | `spec/brief.md`, `specs/` | The product brief and one spec per feature. |
 | `.github/workflows` | CI (`ci.yml`), the manual release (`release-apk.yml`) and the site deploy (`deploy-pages.yml`). |
 | `website` | The project site at <https://markdown.cocode.dk>, English and Persian. `og.png` is rendered from `og-image.html`. |

@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.content.ContentResolver
 import android.net.Uri

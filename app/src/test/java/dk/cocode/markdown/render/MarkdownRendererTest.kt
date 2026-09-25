@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.render
+package dk.cocode.markdown.render
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

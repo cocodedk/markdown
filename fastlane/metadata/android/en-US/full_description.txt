@@ -1,6 +1,6 @@
-Markdown Viewer is a small, fast app that opens a Markdown file and shows it nicely, at once.
+Markdown is a small, fast app that opens a Markdown file and shows it nicely, at once.
 
-Tap a .md file in a file manager, a mail or a chat, pick Markdown Viewer, and read it. Or open the app and pick a file with its Open button.
+Tap a .md file in a file manager, a mail or a chat, pick “Markdown”, and read it. Or open the app and pick a file with its Open button.
 
 <b>Features</b>
 <ul>

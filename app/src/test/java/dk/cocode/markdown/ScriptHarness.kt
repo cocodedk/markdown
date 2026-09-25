@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
 import java.io.File
 import java.io.IOException

@@ -1,8 +1,8 @@
-package dk.cocode.markdownviewer
+package dk.cocode.markdown
 
-import dk.cocode.markdownviewer.ScriptHarness.commit
-import dk.cocode.markdownviewer.ScriptHarness.ok
-import dk.cocode.markdownviewer.ScriptHarness.run
+import dk.cocode.markdown.ScriptHarness.commit
+import dk.cocode.markdown.ScriptHarness.ok
+import dk.cocode.markdown.ScriptHarness.run
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

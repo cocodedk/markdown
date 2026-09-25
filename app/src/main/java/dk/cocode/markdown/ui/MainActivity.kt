@@ -1,4 +1,4 @@
-package dk.cocode.markdownviewer.ui
+package dk.cocode.markdown.ui
 
 import android.content.ContentResolver
 import android.content.Intent
@@ -16,7 +16,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.content.IntentCompat
-import dk.cocode.markdownviewer.R
+import dk.cocode.markdown.R
 
 class MainActivity : ComponentActivity() {
 

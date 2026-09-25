@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MarkdownViewer"
+rootProject.name = "Markdown"
 include(":app")
