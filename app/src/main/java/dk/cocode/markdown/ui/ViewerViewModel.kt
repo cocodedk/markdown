@@ -68,7 +68,7 @@ class ViewerViewModel(application: Application) : AndroidViewModel(application) 
     fun showText(title: String, text: String) {
         uri = null
         job?.cancel()
-        _state.value = ViewerState.Shown(title, text, MarkdownRenderer.render(text, dark))
+        _state.value = ViewerState.Shown(title, text, page(text, dark))
     }
 
     /** Shows the could-not-open message, with no file behind it. */
@@ -86,7 +86,7 @@ class ViewerViewModel(application: Application) : AndroidViewModel(application) 
         job?.cancel()
         job = viewModelScope.launch {
             _state.value = withContext(Dispatchers.Default) {
-                shown.copy(html = MarkdownRenderer.render(shown.markdown, dark))
+                shown.copy(html = page(shown.markdown, dark))
             }
         }
     }
@@ -130,7 +130,7 @@ class ViewerViewModel(application: Application) : AndroidViewModel(application) 
         _state.value = if (editing.title == null && editing.saved.isEmpty()) {
             ViewerState.Empty
         } else {
-            ViewerState.Shown(editing.title, editing.saved, MarkdownRenderer.render(editing.saved, dark))
+            ViewerState.Shown(editing.title, editing.saved, page(editing.saved, dark))
         }
     }
 
@@ -163,12 +163,20 @@ class ViewerViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
+    /** The page for [markdown]; the words that stand in for images come from the app's own strings. */
+    private fun page(markdown: String, dark: Boolean): String {
+        val app = getApplication<Application>()
+        return MarkdownRenderer.render(markdown, dark) { alt ->
+            if (alt.isEmpty()) app.getString(R.string.image_without_description) else app.getString(R.string.image_with_description, alt)
+        }
+    }
+
     private fun load(uri: Uri, dark: Boolean): ViewerState {
         val resolver = getApplication<Application>().contentResolver
         val title = DocumentReader.displayName(resolver, uri)
         return try {
             val text = DocumentReader.readText(resolver, uri)
-            ViewerState.Shown(title, text, MarkdownRenderer.render(text, dark))
+            ViewerState.Shown(title, text, page(text, dark))
         } catch (e: TooLargeException) {
             ViewerState.Failed(title, R.string.too_large)
         } catch (e: Exception) {

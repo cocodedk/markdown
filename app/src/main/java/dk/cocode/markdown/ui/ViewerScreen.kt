@@ -18,9 +18,11 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +36,7 @@ import dk.cocode.markdown.R
 
 const val OPEN_BUTTON_TAG = "open-button"
 const val NEW_BUTTON_TAG = "new-button"
+const val ABOUT_BUTTON_TAG = "about-button"
 
 /** What the screen's buttons and editor do. */
 class ViewerActions(
@@ -45,9 +48,24 @@ class ViewerActions(
     val onDone: () -> Unit = {},
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
+/** The viewer, or the About page when it is asked for from the screen with no document. */
 @Composable
 fun ViewerScreen(state: ViewerState, actions: ViewerActions) {
+    var about by rememberSaveable { mutableStateOf(false) }
+    val canShowAbout = state is ViewerState.Empty || state is ViewerState.Failed
+    // A document that opens meanwhile takes the screen back.
+    LaunchedEffect(canShowAbout) { if (!canShowAbout) about = false }
+    if (about && canShowAbout) {
+        BackHandler { about = false }
+        AboutScreen(onBack = { about = false })
+    } else {
+        ViewerContent(state, actions, onAbout = { about = true })
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ViewerContent(state: ViewerState, actions: ViewerActions, onAbout: () -> Unit) {
     val title = when (state) {
         is ViewerState.Shown -> state.title
         is ViewerState.Failed -> state.title
@@ -68,9 +86,9 @@ fun ViewerScreen(state: ViewerState, actions: ViewerActions) {
         // Consumed here, so the editor's keyboard padding does not count the navigation bar twice.
         Box(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding), contentAlignment = Alignment.Center) {
             when (state) {
-                ViewerState.Empty -> Prompt(stringResource(R.string.empty_hint), actions)
+                ViewerState.Empty -> Prompt(stringResource(R.string.empty_hint), actions, onAbout)
                 ViewerState.Loading -> CircularProgressIndicator()
-                is ViewerState.Failed -> Prompt(stringResource(state.message), actions)
+                is ViewerState.Failed -> Prompt(stringResource(state.message), actions, onAbout)
                 is ViewerState.Shown -> Page(state.html)
                 is ViewerState.Editing -> Editor(state, actions.onChange)
             }
@@ -102,7 +120,7 @@ private fun BarActions(state: ViewerState, actions: ViewerActions, leave: () -> 
 }
 
 @Composable
-private fun Prompt(text: String, actions: ViewerActions) {
+private fun Prompt(text: String, actions: ViewerActions, onAbout: () -> Unit) {
     Column(
         modifier = Modifier.padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -118,6 +136,9 @@ private fun Prompt(text: String, actions: ViewerActions) {
         }
         OutlinedButton(onClick = actions.onNew, modifier = Modifier.testTag(NEW_BUTTON_TAG)) {
             Text(stringResource(R.string.new_document), modifier = Modifier.padding(horizontal = 16.dp))
+        }
+        TextButton(onClick = onAbout, modifier = Modifier.testTag(ABOUT_BUTTON_TAG)) {
+            Text(stringResource(R.string.action_about))
         }
     }
 }

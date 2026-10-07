@@ -25,4 +25,33 @@
     <string name="format_code">Code</string>
     <string name="format_link">Link</string>
     <string name="too_large">This file is too large to show (over 2 MB).</string>
+    <string name="image_with_description">[image: %1$s]</string>
+    <string name="image_without_description">[image]</string>
+
+    <!-- About screen -->
+    <string name="action_about">About Markdown</string>
+    <string name="about_title">About Markdown</string>
+    <string name="action_back">Back</string>
+    <string name="about_name_title">Name and version</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_check_updates">See the latest version</string>
+    <string name="about_update_note">The button opens the page with the newest version in your web browser. Markdown never checks for updates on its own.</string>
+    <string name="about_what_title">What the app does</string>
+    <string name="about_what">Markdown opens Markdown files and shows them as a neat page. You can also edit a file and save it, or write a new one. Markdown is a way of writing formatted text with plain characters: for example, a # at the start of a line makes a heading.</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy_body">Markdown collects no personal data. It has no account, no tracking of how you use the app, no advertising and no crash reports. It asks Android for no permissions and cannot connect to the internet. It opens a file only when you choose it or send it to the app, and it saves a file only when you tap Save.</string>
+    <string name="about_privacy_link">Read the privacy policy</string>
+    <string name="about_links_title">Links</string>
+    <string name="about_links_note">These links open in your web browser.</string>
+    <string name="about_website">Open the website</string>
+    <string name="about_source">See the source code on GitHub</string>
+    <string name="about_report">Report a problem on GitHub</string>
+    <string name="about_link_failed">No app on this phone could open the link. Install a web browser, then try again.</string>
+    <string name="about_credits">Credits and licenses</string>
+    <string name="about_credit_license">Markdown is free software, released under the Apache License 2.0. You may use, read, change and share it.</string>
+    <string name="about_credit_commonmark">Markdown files become pages with commonmark-java (BSD 2-Clause license).</string>
+    <string name="about_credit_autolink">Web addresses in text become links with autolink-java (MIT license).</string>
+    <string name="about_credit_androidx">The app is built with AndroidX, Jetpack Compose and Kotlin, all under the Apache License 2.0.</string>
+    <string name="about_made_by_title">Made by Cocode</string>
+    <string name="about_made_by">Made by Cocode (cocode.dk)</string>
 </resources>
