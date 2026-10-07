@@ -1,20 +1,20 @@
-Markdown is a small, fast app that opens a Markdown file and shows it nicely, at once, and lets you edit it.
+Markdown lets you read, edit and save Markdown files on Android. Markdown is a way of writing formatted text with plain characters: for example, a # at the start of a line makes a heading.
 
-Tap a .md file in a file manager, a mail or a chat, pick “Markdown”, and read it. Or open the app and pick a file with its Open button.
+Tap a .md file in a file manager, email app or chat app and choose “Markdown” if it is offered. Or start Markdown and tap Open to choose a file.
 
 <b>Features</b>
 <ul>
-<li>Opens Markdown from any app that shares or opens a file</li>
-<li>GitHub-flavoured Markdown: tables, strikethrough, autolinks and task lists</li>
-<li>Follows the system light or dark theme</li>
-<li>Edit the source and save it back, or start a new file</li>
+<li>Choose a Markdown file with Open, or receive Markdown or plain text from compatible apps</li>
+<li>Shows tables, strikethrough and task lists, and turns web addresses into clickable links</li>
+<li>Follows your phone's light or dark theme</li>
+<li>Edit the text and save it back, or start a new file</li>
 </ul>
 
 <b>Private by design</b>
 <ul>
 <li>No permissions</li>
-<li>No network: remote images are not loaded</li>
-<li>No scripts run from a document</li>
+<li>No network: pictures from the web are not loaded</li>
+<li>Documents cannot run scripts (small programs)</li>
 </ul>
 
 No accounts.

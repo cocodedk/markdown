@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Markdown — read and edit .md files on Android · Cocode</title>
-<meta name="description" content="A small, fast Android app that opens Markdown files from any app, shows GitHub-flavoured Markdown in light and dark, and lets you edit them. No permissions, no network. Free and open source.">
+<meta name="description" content="Read and edit Markdown files on Android. Choose a file with Open or receive one from a compatible app. No permissions, no network. Free and open source.">
 <meta name="theme-color" content="#1e3a5f">
 <link rel="canonical" href="https://markdown.cocode.dk/">
 <link rel="alternate" hreflang="en" href="https://markdown.cocode.dk/">
+<link rel="alternate" hreflang="da" href="https://markdown.cocode.dk/da/">
 <link rel="alternate" hreflang="fa" href="https://markdown.cocode.dk/fa/">
 <link rel="alternate" hreflang="x-default" href="https://markdown.cocode.dk/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Markdown">
 <meta property="og:title" content="Markdown — read and edit .md files on Android">
-<meta property="og:description" content="Tap a .md file in any app and read it, rendered, or edit it. Tables, task lists, light and dark. No permissions, no network.">
+<meta property="og:description" content="Read and edit Markdown files on Android, with tables, task lists, and light and dark themes. Choose a file with Open or receive one from a compatible app. No permissions, no network.">
 <meta property="og:url" content="https://markdown.cocode.dk/">
 <meta property="og:image" content="https://markdown.cocode.dk/og.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +25,7 @@
 <meta property="og:locale:alternate" content="fa_IR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Markdown — read and edit .md files on Android">
-<meta name="twitter:description" content="Tap a .md file in any app and read it, rendered, or edit it. No permissions, no network.">
+<meta name="twitter:description" content="Read and edit Markdown files on Android. Choose a file with Open or receive one from a compatible app. No permissions, no network.">
 <meta name="twitter:image" content="https://markdown.cocode.dk/og.png">
 <meta name="twitter:image:alt" content="Markdown source beside the same text rendered.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,14 +41,14 @@
   "@type": "SoftwareApplication",
   "name": "Markdown",
   "url": "https://markdown.cocode.dk/",
-  "description": "A small, fast Android app that opens Markdown files from any app, shows GitHub-flavoured Markdown in light and dark, and edits them.",
+  "description": "An Android app for reading and editing Markdown files chosen with its file picker or received from compatible apps.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Android 8.0 or newer",
   "downloadUrl": "https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk",
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "codeRepository": "https://github.com/cocodedk/markdown",
   "image": "https://markdown.cocode.dk/og.png",
-  "inLanguage": ["en", "fa"],
+  "inLanguage": ["en", "da"],
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
   "author": { "@type": "Person", "name": "Babak Bandpey", "url": "https://linkedin.com/in/babakbandpey" },
   "publisher": { "@type": "Organization", "name": "Cocode", "url": "https://cocode.dk" }
@@ -93,10 +94,10 @@
   </section>
 
   <section id="how">
-    <h2 data-md="##">Open it from anywhere</h2>
+    <h2 data-md="##">Open a file or shared text</h2>
     <ul class="md">
-      <li>Tap a <code>.md</code> file in a file manager, a mail or a chat, and choose “Markdown”.</li>
-      <li>Share a file or a piece of text to it from any app.</li>
+      <li>Tap a <code>.md</code> file in a file manager, email app or chat app, and choose “Markdown” if it is offered.</li>
+      <li>Share a file or a piece of text from an app that shares Markdown or plain text.</li>
       <li>Or start the app and pick a file with its Open button, or start a new one with New.</li>
     </ul>
   </section>
@@ -104,18 +105,18 @@
   <section>
     <h2 data-md="##">What it does</h2>
     <table class="feat">
-      <tr><th>Markdown</th><td>CommonMark with GitHub's extensions: tables, strikethrough, autolinks and task lists.</td></tr>
+      <tr><th>Markdown</th><td>Shows headings, tables, strikethrough and task lists, and turns web addresses into clickable links.</td></tr>
       <tr><th>Light and dark</th><td>Follows your phone's theme.</td></tr>
       <tr><th>Any direction</th><td>Persian, Arabic and Hebrew paragraphs read right to left, English left to right, in the same file.</td></tr>
       <tr><th>Zoom</th><td>Pinch to enlarge small text.</td></tr>
-      <tr><th>Edit</th><td>Tap Edit to change the source, with buttons for bold, italic, headings, lists, quotes, code and links, then Save. Files the other app lets you change are saved in place; for anything else you choose where the copy goes.</td></tr>
+      <tr><th>Edit</th><td>Tap Edit to change the text, with buttons for bold, italic, headings, lists, quotes, code and links, then Save. Files the other app lets you change are saved in place; for anything else you choose where the copy goes.</td></tr>
     </table>
   </section>
 
   <section>
     <h2 data-md="##">What it will not do</h2>
     <blockquote>
-      <p>It asks for no permissions and never goes online, so remote images stay unloaded. Nothing in a document runs as a script. No accounts.</p>
+      <p>It asks for no permissions and cannot connect to the internet, so remote images stay unloaded. A link you tap opens in your web browser, not in Markdown. Nothing in a document runs as a script. No accounts.</p>
     </blockquote>
   </section>
 
@@ -124,11 +125,11 @@
     <!-- cocode-apps:install:start -->
 <ul class="install" role="list">
   <li><p class="fdroid-soon">Coming to F-Droid</p></li>
-  <li><a href="https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk">Download the APK from GitHub</a></li>
-  <li><a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/cocodedk/markdown">Auto-update the GitHub APK with Obtainium</a></li>
+  <li><a href="https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk">Download the Android installation file (APK) from GitHub</a></li>
+  <li><a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/cocodedk/markdown">Add the app to Obtainium, an app that keeps it up to date</a></li>
 </ul>
 <!-- cocode-apps:install:end -->
-    <p>Every release and its notes are on <a href="https://github.com/cocodedk/markdown/releases">GitHub</a>. The source is <a href="https://github.com/cocodedk/markdown">open</a>, and every test runs on a plain JVM.</p>
+    <p>Every release and its notes are on <a href="https://github.com/cocodedk/markdown/releases">GitHub</a>, and so is the <a href="https://github.com/cocodedk/markdown">source code</a>.</p>
   </section>
 </main>
 <div class="site-footer">

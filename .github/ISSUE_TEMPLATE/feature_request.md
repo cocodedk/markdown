@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest something the viewer should do
+about: Suggest something the app should do
 title: ""
 labels: enhancement
 ---
@@ -13,4 +13,4 @@ What are you trying to do that the app makes hard today?
 
 **Anything else**
 
-The app stays small on purpose: it only views, asks for no permissions and uses no network.
+The app stays small on purpose: it reads, edits and saves Markdown files, asks for no permissions and uses no network.

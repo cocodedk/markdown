@@ -1,0 +1,1 @@
+En formateringslinje i editoren: fed, kursiv, gennemstregning, overskrifter, punktlister, nummererede lister og opgavelister, citater, kode og links.

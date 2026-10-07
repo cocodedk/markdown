@@ -1,0 +1,20 @@
+Markdown lader dig læse, redigere og gemme Markdown-filer på Android. Markdown er en måde at skrive formateret tekst på med helt almindelige tegn: for eksempel gør et # først på en linje den til en overskrift.
+
+Tryk på en .md-fil i en filhåndtering, en mailapp eller en chatapp, og vælg “Markdown”, hvis den tilbydes. Eller start Markdown, og tryk på Åbn for at vælge en fil.
+
+<b>Funktioner</b>
+<ul>
+<li>Vælg en Markdown-fil med Åbn, eller modtag Markdown eller almindelig tekst fra kompatible apps</li>
+<li>Viser tabeller, gennemstregning og opgavelister, og gør webadresser til links, du kan trykke på</li>
+<li>Følger telefonens lyse eller mørke tema</li>
+<li>Redigér teksten og gem den igen, eller start en ny fil</li>
+</ul>
+
+<b>Privat fra grunden</b>
+<ul>
+<li>Ingen tilladelser</li>
+<li>Intet netværk: billeder fra nettet indlæses ikke</li>
+<li>Dokumenter kan ikke køre scripts (små programmer)</li>
+</ul>
+
+Ingen konti.
