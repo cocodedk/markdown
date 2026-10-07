@@ -33,66 +33,80 @@
 <main id="main" tabindex="-1">
   <section>
     <h1 data-md="#">Privacy policy: Markdown</h1>
-    <p>This policy covers the Android app Markdown (package <code>dk.cocode.markdown</code>) from Cocode.</p>
+    <p>This policy is for Markdown, an Android app from Cocode. It explains what the app does with your information. Android knows the app by its package name, <code>dk.cocode.markdown</code>.</p>
     <p class="quiet">Effective <time datetime="2026-10-07">7 October 2026</time>.</p>
   </section>
 
   <section>
     <h2 data-md="##">Summary</h2>
-    <p>Markdown collects no personal data and sends nothing anywhere. It asks Android for no permissions, so it cannot use the network at all. It reads a file only when you open it or send it to the app, and it writes a file only when you tap Save. There is no account, no analytics, no advertising and no crash reporting.</p>
+    <p>Markdown does not collect your personal data, and the app itself cannot connect to the internet. There is no account, no analytics (tracking of how you use the app), no advertising and no crash reports.</p>
+    <p>The app asks Android for no permissions. It opens a file only when you choose it or send it to the app, and it saves a file only when you tap Save.</p>
   </section>
 
   <section>
     <h2 data-md="##">What is collected</h2>
-    <p>Nothing is collected. The app handles two things, and only on your phone:</p>
+    <p>Nothing is collected, and the app sends no information about you to anyone. It works with two things, and only on your phone:</p>
     <ul class="md">
-      <li>The text of the file you open or share, or the text you type in the editor. The app keeps it in memory to show it and to edit it. A file over 2 MB is not opened.</li>
-      <li>The file's name, which Android gives the app, shown as the title at the top of the screen.</li>
+      <li>The text of the file you open or share, or the text you type in the editor. The app holds it in the phone's working memory so it can show it and let you edit it. If a file is over 2 MB, the app does not open it and tells you it is too large.</li>
+      <li>The file's name, which Android gives the app. It is shown as the title at the top of the screen.</li>
     </ul>
-    <p>The app has no account, no identifier of you or your phone, no location, no contacts and no usage statistics. If you write to Cocode (see Contact), Cocode receives your message and your email address. That has nothing to do with the app.</p>
+    <p>The app has no account. It uses no identifier for you or your phone, no location, no contacts and no usage statistics.</p>
+    <p>If you write to Cocode (see Contact), Cocode receives your message and your email address. That has nothing to do with the app.</p>
   </section>
 
   <section>
     <h2 data-md="##">Servers the app contacts</h2>
-    <p>None. The app has no network permission (see Permissions) and its code makes no network requests. The web view that draws your document has network loads switched off, so a picture in a document is never fetched: it shows as <code>[image: description]</code>.</p>
-    <p>A link in a document is only an address until you tap it. When you do, the app hands the address (a web or an email address) to Android, which opens it in the browser or the mail app you use. That app contacts the link's server, not Markdown.</p>
-    <p>This website is separate from the app. When you read this page, your browser fetches a stylesheet and a script for the Cocode page frame from <code>brand.cocode.dk</code>, and the page itself comes from GitHub Pages. Those are requests from your browser, not from the app.</p>
+    <p>None. A server is a computer on the internet that an app can send information to or fetch information from. Markdown talks to no server.</p>
+    <ul class="md">
+      <li>Android lets an app use the internet only if the app has the internet permission. Markdown does not have it, and its code makes no network requests.</li>
+      <li>Markdown shows your document in a web view. That is the part of Android that draws web pages. Here it is set to load nothing from the internet, so a picture in a document is never fetched. It appears as the words <code>[image: description]</code> instead, using the picture's own description.</li>
+      <li>A link in a document is only an address until you tap it. When you tap one, Markdown passes the address (a web or an email address) to Android. Android opens it in the browser or mail app you use. That app contacts the link's server, not Markdown.</li>
+    </ul>
+    <p>This website is separate from the app. When you read this page, your browser fetches a stylesheet and a script for the Cocode page frame (the bars at the top and bottom of the page) from <code>brand.cocode.dk</code>. The page itself comes from GitHub Pages, GitHub's website hosting. Those requests come from your browser, not from the app.</p>
   </section>
 
   <section>
     <h2 data-md="##">Permissions</h2>
-    <p>The app asks for no Android permissions: no internet, no storage, no camera, no microphone, no location, no contacts and no notifications.</p>
-    <p>It still reads and saves files, because you hand each file to it. When you tap Open, Android's own file picker lets you choose a file, and Android gives the app access to that one file. The same happens when another app opens a file in Markdown or shares text or a file to it. Saving uses the same access: the app writes to the file Android gave it, or to the place you choose in Android's picker.</p>
-    <p>The app lists the kinds of file it can open (Markdown and plain text) so Android offers it in "Open with". That is not a permission.</p>
+    <p>A permission is something Android asks you to allow before an app can use it, such as the camera or the internet. Markdown asks for none: no internet, no storage, no camera, no microphone, no location, no contacts and no notifications.</p>
+    <p>It can still open and save files, because you give it each file yourself:</p>
+    <ul class="md">
+      <li>When you tap Open, Android's own file picker (a screen where you choose a file) lets you pick one. Android then gives Markdown access to that one file.</li>
+      <li>When another app opens a file in Markdown, or shares a file or text to it, Markdown receives that file or text in the same way.</li>
+      <li>When you tap Save, Markdown writes to the file Android gave it, or to the place you choose in Android's file picker.</li>
+    </ul>
+    <p>The app also tells Android which kinds of file it can open (Markdown and plain text), so Android offers it under "Open with". That is not a permission.</p>
   </section>
 
   <section>
     <h2 data-md="##">What stays on the phone</h2>
-    <p>The app stores nothing of its own: no database, no settings file, no cache and no history. While it runs, the text of the open file and the file's address are held in memory. Changes you have not saved exist only there. Done drops them, and they are gone when the app is closed.</p>
-    <p>The only thing the app writes is the file itself, and only when you tap Save, to the file you opened or to the place you chose. That file is yours and stays where you put it. Delete it with your file manager.</p>
-    <p>The app also switches off Android's app backup, so none of it is copied into an Android backup.</p>
+    <p>Markdown stores nothing of its own: no database, no settings file, no cache (saved copies kept for speed) and no history.</p>
+    <p>While the app runs, the text of the open file and the file's address are held in the phone's working memory. Changes you have not saved exist only there. If you tap Done with unsaved changes, the app asks "Discard your changes?", and choosing Discard throws them away. They are also gone when the app is closed.</p>
+    <p>The only thing Markdown writes is the file itself, and only when you tap Save. It goes to the file you opened or to the place you chose. That file is yours and stays where you put it. To delete it, use your file manager, the app you use to browse files.</p>
+    <p>Android can copy an app's data into a backup. Markdown turns that off, so none of it is copied into an Android backup.</p>
   </section>
 
   <section>
     <h2 data-md="##">Third parties</h2>
-    <p>The app sends data to no third party. It has no analytics, advertising or crash-reporting library. The libraries inside it are Android's Jetpack and Compose (Google), Kotlin and its coroutines (JetBrains), and the open-source CommonMark and autolink libraries that turn Markdown into a page. They run inside the app, and because the app has no network permission, none of them can connect anywhere.</p>
-    <p>Other parts of Android and other apps take part when you use Markdown, under their own policies:</p>
+    <p>Markdown sends data to no third party, meaning no other company or service. It has no analytics, advertising or crash-reporting library. A library is ready-made code that an app includes.</p>
+    <p>The libraries it does include are Android's Jetpack and Compose (Google), Kotlin and its coroutines (JetBrains), and the open-source CommonMark and autolink libraries, which turn Markdown text into a page. They run inside the app. Because the app has no internet permission, none of them can connect to anything.</p>
+    <p>Other parts of Android and other apps take part when you use Markdown. Each has its own policy:</p>
     <ul class="md">
-      <li>Android System WebView draws the page. In this app its scripts, file access and network loads are switched off.</li>
-      <li>The file picker, and the app that holds your file or sends it to Markdown: a file manager, a mail app or a cloud storage app. A cloud storage app may download a file when you open it and upload it again after you save. That is that app, not Markdown.</li>
-      <li>The browser or the mail app that opens a link you tap.</li>
+      <li>Android System WebView, the web view described above. In Markdown its scripts, file access and network loading are switched off.</li>
+      <li>The file picker, and the app that holds your file or sends it to Markdown: a file manager, a mail app or a cloud storage app (an app that keeps files online). A cloud storage app may download a file when you open it and upload it again after you save. That is that app, not Markdown.</li>
+      <li>The browser or mail app that opens a link you tap.</li>
       <li>Your keyboard, when you type in the editor. Markdown has no keyboard of its own.</li>
     </ul>
   </section>
 
   <section>
     <h2 data-md="##">Your rights</h2>
-    <p>Because the app collects no personal data and Cocode receives none from it, there is nothing to access, correct or delete. Under the General Data Protection Regulation (GDPR) you have the right to ask what personal data is held about you, to have it corrected or deleted, and to complain. Write to <a href="mailto:bb@cocode.dk">bb@cocode.dk</a> if you are in doubt. You can also complain to the Danish Data Protection Agency, <a href="https://www.datatilsynet.dk/english">Datatilsynet</a>.</p>
+    <p>Markdown collects no personal data, and Cocode receives none from it. So there is nothing to look up, correct or delete.</p>
+    <p>The General Data Protection Regulation (GDPR) gives you the right to ask what personal data is held about you, to have it corrected or deleted, and to complain. If you are in doubt, write to <a href="mailto:bb@cocode.dk">bb@cocode.dk</a>. You can also complain to the Danish Data Protection Agency, <a href="https://www.datatilsynet.dk/english">Datatilsynet</a>.</p>
   </section>
 
   <section>
     <h2 data-md="##">Contact</h2>
-    <p>Cocode (Babak Bandpey), <a href="mailto:bb@cocode.dk">bb@cocode.dk</a>. You can also open an issue on <a href="https://github.com/cocodedk/markdown/issues">GitHub</a>. Issues there are public.</p>
+    <p>Write to Cocode (Babak Bandpey) at <a href="mailto:bb@cocode.dk">bb@cocode.dk</a> with questions about the app or this policy. You can also open an issue on <a href="https://github.com/cocodedk/markdown/issues">GitHub</a>. Issues there are public, so leave out anything private.</p>
   </section>
 
   <section>
