@@ -26,7 +26,7 @@ An Android app for reading, editing and saving Markdown files.
 ## Privacy
 
 Markdown asks for no permissions and cannot connect to the internet, so remote images stay unloaded.
-A link you tap opens in your web browser, not in Markdown. Nothing in a document runs as a script.
+A web link you tap opens in your browser and an email link in your mail app, never inside Markdown. Nothing in a document runs as a script.
 There are no accounts.
 
 ## Build
