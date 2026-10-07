@@ -11,7 +11,7 @@ Identity (fixed): author Babak Bandpey, company [Cocode](https://cocode.dk), Git
 
 - `README.md`: what it is (one line, then three bullets: opens from any app, GitHub-flavoured
   Markdown in light and dark, no permissions and no network), install (the latest release's
-  `MarkdownViewer.apk`, at `https://github.com/cocodedk/markdown-viewer/releases/latest/download/MarkdownViewer.apk`),
+  `Markdown.apk`, at `https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk`),
   building (`./gradlew assembleDebug`), testing (`./gradlew testDebugUnitTest`), the layout,
   license, and "Made by Babak Bandpey at [Cocode](https://cocode.dk)".
 - `LICENSE` (Apache-2.0, copyright 2026 Babak Bandpey), `CONTRIBUTING.md`, `SECURITY.md` (report to

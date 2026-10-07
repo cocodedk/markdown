@@ -101,6 +101,15 @@ class AboutScreenTest {
     }
 
     @Test
+    @Config(qualifiers = "da")
+    fun `with the app in Danish the website and privacy links open the Danish pages`() {
+        openAbout()
+
+        assertEquals("https://markdown.cocode.dk/da/", tap("Åbn hjemmesiden").dataString)
+        assertEquals("https://markdown.cocode.dk/da/privacy/", tap("Læs privatlivspolitikken").dataString)
+    }
+
+    @Test
     fun `without a policy page there is no privacy link`() {
         showAbout(AboutTargets(onFdroid = false, privacyUrl = null))
 

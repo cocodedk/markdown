@@ -47,6 +47,46 @@ class AboutLinksTest {
         assertEquals("https://markdown.cocode.dk/privacy/", aboutUrl(AboutLink.Privacy, targets))
     }
 
+    private val published = AboutTargets(onFdroid = false, privacyUrl = "https://markdown.cocode.dk/privacy/")
+
+    @Test
+    fun `English opens the English website and privacy pages`() {
+        assertEquals("https://markdown.cocode.dk", aboutUrl(AboutLink.Website, published, "en"))
+        assertEquals("https://markdown.cocode.dk/privacy/", aboutUrl(AboutLink.Privacy, published, "en"))
+    }
+
+    @Test
+    fun `Danish opens the Danish website and privacy pages`() {
+        assertEquals("https://markdown.cocode.dk/da/", aboutUrl(AboutLink.Website, published, "da"))
+        assertEquals("https://markdown.cocode.dk/da/privacy/", aboutUrl(AboutLink.Privacy, published, "da"))
+    }
+
+    @Test
+    fun `a language the site lacks falls back to the English pages`() {
+        // Persian has /fa/ but no /fa/privacy/, so it stays on English; "fr" has no pages at all.
+        for (language in listOf("fa", "fr")) {
+            assertEquals("https://markdown.cocode.dk", aboutUrl(AboutLink.Website, published, language))
+            assertEquals("https://markdown.cocode.dk/privacy/", aboutUrl(AboutLink.Privacy, published, language))
+        }
+    }
+
+    @Test
+    fun `source, issues and update links do not follow the language`() {
+        for (language in listOf("en", "da", "fa")) {
+            assertEquals("https://github.com/cocodedk/markdown", aboutUrl(AboutLink.Source, published, language))
+            assertEquals("https://github.com/cocodedk/markdown/issues", aboutUrl(AboutLink.Issues, published, language))
+            assertEquals(
+                "https://github.com/cocodedk/markdown/releases/latest",
+                aboutUrl(AboutLink.Update, published, language),
+            )
+        }
+    }
+
+    @Test
+    fun `there is no Danish privacy link while there is no policy page`() {
+        assertNull(aboutUrl(AboutLink.Privacy, github, "da"))
+    }
+
     @Test
     fun `there is no privacy link while there is no policy page`() {
         assertNull(aboutUrl(AboutLink.Privacy, github))

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Markdown</string>
+    <string name="open">Åbn</string>
+    <string name="empty_hint">Åbn en Markdown-fil for at læse den.</string>
+    <string name="could_not_open">Filen kunne ikke åbnes.</string>
+    <string name="shared_text">Delt tekst</string>
+    <string name="edit">Redigér</string>
+    <string name="save">Gem</string>
+    <string name="done">Luk editoren</string>
+    <string name="new_document">Ny</string>
+    <string name="untitled">Uden titel</string>
+    <string name="could_not_save">Filen kunne ikke gemmes.</string>
+    <string name="discard_title">Vil du kassere dine ændringer?</string>
+    <string name="discard">Kassér</string>
+    <string name="keep_editing">Fortsæt redigering</string>
+    <string name="format_bold">Fed</string>
+    <string name="format_italic">Kursiv</string>
+    <string name="format_strike">Gennemstreget</string>
+    <string name="format_heading">Overskrift</string>
+    <string name="format_bullet">Punktliste</string>
+    <string name="format_numbered">Nummereret liste</string>
+    <string name="format_task">Opgaveliste</string>
+    <string name="format_quote">Citat</string>
+    <string name="format_code">Kode</string>
+    <string name="format_link">Link</string>
+    <string name="too_large">Filen er for stor til at blive vist (over 2 MB).</string>
+    <string name="image_with_description">[billede: %1$s]</string>
+    <string name="image_without_description">[billede]</string>
+
+    <!-- About screen -->
+    <string name="action_about">Om Markdown</string>
+    <string name="about_title">Om Markdown</string>
+    <string name="action_back">Tilbage</string>
+    <string name="about_name_title">Navn og version</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_check_updates">Se den nyeste version</string>
+    <string name="about_update_note">Knappen åbner siden med den nyeste version i din webbrowser. Markdown søger aldrig selv efter opdateringer.</string>
+    <string name="about_what_title">Hvad appen kan</string>
+    <string name="about_what">Markdown åbner Markdown-filer og viser dem som en pæn side. Du kan også redigere en fil og gemme den, eller skrive en ny. Markdown er en måde at skrive formateret tekst på med helt almindelige tegn: for eksempel gør et # først på en linje den til en overskrift.</string>
+    <string name="about_privacy_title">Privatliv</string>
+    <string name="about_privacy_body">Markdown indsamler ingen personoplysninger. Der er ingen konto, ingen sporing af, hvordan du bruger appen, ingen reklamer og ingen nedbrudsrapporter. Appen beder ikke Android om nogen tilladelser og kan ikke oprette forbindelse til internettet. Den åbner kun en fil, når du vælger den eller sender den til appen, og den gemmer kun en fil, når du trykker på Gem.</string>
+    <string name="about_privacy_link">Læs privatlivspolitikken</string>
+    <string name="about_links_title">Links</string>
+    <string name="about_links_note">Disse links åbner i din webbrowser.</string>
+    <string name="about_website">Åbn hjemmesiden</string>
+    <string name="about_source">Se kildekoden på GitHub</string>
+    <string name="about_report">Meld en fejl på GitHub</string>
+    <string name="about_link_failed">Ingen app på telefonen kunne åbne linket. Installér en webbrowser, og prøv igen.</string>
+    <string name="about_credits">Tak og licenser</string>
+    <string name="about_credit_license">Markdown er fri software, udgivet under Apache License 2.0. Du må bruge, læse, ændre og dele den.</string>
+    <string name="about_credit_commonmark">Markdown-filer bliver til sider med commonmark-java (BSD 2-Clause-licens).</string>
+    <string name="about_credit_autolink">Webadresser i teksten bliver til links med autolink-java (MIT-licens).</string>
+    <string name="about_credit_androidx">Appen er bygget med AndroidX, Jetpack Compose og Kotlin, alle under Apache License 2.0.</string>
+    <string name="about_made_by_title">Lavet af Cocode</string>
+    <string name="about_made_by">Lavet af Cocode (cocode.dk)</string>
+</resources>

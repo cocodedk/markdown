@@ -23,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.net.toUri
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
@@ -63,12 +64,14 @@ private fun Body(@StringRes text: Int) = Text(stringResource(text), style = Mate
 @Composable
 fun AboutScreen(onBack: () -> Unit, targets: AboutTargets = appTargets) {
     val context = LocalContext.current
+    // The app's own language, the one its strings are shown in: it picks the website and privacy pages.
+    val language = LocalConfiguration.current.locales[0].language
     val version = remember { versionName(context) }
     val messages = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val linkFailed = stringResource(R.string.about_link_failed)
     val open = { link: AboutLink ->
-        val url = aboutUrl(link, targets)
+        val url = aboutUrl(link, targets, language)
         if (url != null && !openOutside(context, url.toUri())) {
             scope.launch { messages.showSnackbar(linkFailed, duration = SnackbarDuration.Long) }
         }
@@ -98,7 +101,7 @@ fun AboutScreen(onBack: () -> Unit, targets: AboutTargets = appTargets) {
             // 3. Privacy, and the policy page once there is one.
             SectionTitle(R.string.about_privacy_title)
             Body(R.string.about_privacy_body)
-            if (aboutUrl(AboutLink.Privacy, targets) != null) {
+            if (aboutUrl(AboutLink.Privacy, targets, language) != null) {
                 OutlinedButton(onClick = { open(AboutLink.Privacy) }) { Text(stringResource(R.string.about_privacy_link)) }
             }
             // 4. Links.
