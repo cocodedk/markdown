@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Markdown" parent="android:Theme.Material.NoActionBar" />
+    <style name="Theme.Markdown" parent="android:Theme.Material.NoActionBar">
+        <!-- A dark top bar needs light status-bar icons. -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>

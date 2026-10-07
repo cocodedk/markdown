@@ -1,10 +1,6 @@
 package dk.cocode.markdown.ui
 
-import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -32,19 +28,10 @@ object ViewerWebView {
 class LinkClient : WebViewClient() {
 
     override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-        openOutside(view.context, request.url)
+        val uri = request.url
+        // If no app can open it, nothing happens.
+        if (uri.scheme?.lowercase() in EXTERNAL_SCHEMES) openOutside(view.context, uri)
         return true
-    }
-
-    private fun openOutside(context: Context, uri: Uri) {
-        if (uri.scheme?.lowercase() !in EXTERNAL_SCHEMES) return
-        val intent = Intent(Intent.ACTION_VIEW, uri)
-        if (context !is Activity) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        try {
-            context.startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
-            // No app can open it: nothing happens.
-        }
     }
 
     private companion object {

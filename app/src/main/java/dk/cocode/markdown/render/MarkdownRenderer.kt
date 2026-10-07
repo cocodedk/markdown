@@ -34,16 +34,20 @@ object MarkdownRenderer {
 
     private val parser: Parser = Parser.builder().extensions(extensions).build()
 
-    private val renderer: HtmlRenderer = HtmlRenderer.builder()
+    private fun renderer(imageLabel: (alt: String) -> String): HtmlRenderer = HtmlRenderer.builder()
         .extensions(extensions)
         .escapeHtml(true)
         .sanitizeUrls(true)
-        .nodeRendererFactory { ImageAsText(it) }
+        .nodeRendererFactory { ImageAsText(it, imageLabel) }
         .attributeProviderFactory { DirectionPerBlock }
         .build()
 
-    fun render(markdown: String, dark: Boolean): String {
-        val body = renderer.render(parser.parse(markdown))
+    /** English stand-in for an image; the app passes its own words from its string resources. */
+    private val englishImageLabel: (String) -> String = { alt -> if (alt.isEmpty()) "[image]" else "[image: $alt]" }
+
+    /** [imageLabel] gives the words shown in place of an image, from its (possibly empty) description. */
+    fun render(markdown: String, dark: Boolean, imageLabel: (alt: String) -> String = englishImageLabel): String {
+        val body = renderer(imageLabel).render(parser.parse(markdown))
         return buildString {
             append("<!DOCTYPE html>\n<html>\n<head>\n")
             append("<meta charset=\"utf-8\">\n")
@@ -64,8 +68,11 @@ private object DirectionPerBlock : AttributeProvider {
     }
 }
 
-/** Images are never fetched: they show as `[image: alt]` in italics. */
-private class ImageAsText(private val context: HtmlNodeRendererContext) : NodeRenderer {
+/** Images are never fetched: they show as their label, such as `[image: alt]`, in italics. */
+private class ImageAsText(
+    private val context: HtmlNodeRendererContext,
+    private val label: (alt: String) -> String,
+) : NodeRenderer {
 
     override fun getNodeTypes(): Set<Class<out Node>> = setOf(Image::class.java)
 
@@ -73,7 +80,7 @@ private class ImageAsText(private val context: HtmlNodeRendererContext) : NodeRe
         val alt = altText(node).trim()
         val writer = context.writer
         writer.tag("em")
-        writer.text(if (alt.isEmpty()) "[image]" else "[image: $alt]")
+        writer.text(label(alt))
         writer.tag("/em")
     }
 

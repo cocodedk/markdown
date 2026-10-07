@@ -71,6 +71,17 @@ class ShareIntentTest {
     }
 
     @Test
+    fun `an image in shared text shows the words from the app's strings`() {
+        val intent = shareIntent("text/plain").putExtra(Intent.EXTRA_TEXT, "![a cat](cat.png)\n\n![](dog.png)")
+
+        val html = (stateAfter(intent) as ViewerState.Shown).html
+
+        assertTrue(html.contains("<em>${context.getString(R.string.image_with_description, "a cat")}</em>"))
+        assertTrue(html.contains("<em>${context.getString(R.string.image_without_description)}</em>"))
+        assertTrue(html.contains("[image: a cat]"))
+    }
+
+    @Test
     fun `a share with neither stream nor text shows the could-not-open message`() {
         val state = stateAfter(shareIntent())
 

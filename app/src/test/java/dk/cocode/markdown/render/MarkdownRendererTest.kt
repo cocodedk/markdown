@@ -99,6 +99,15 @@ class MarkdownRendererTest {
     }
 
     @Test
+    fun `the words for an image come from the caller`() {
+        val page = MarkdownRenderer.render("![a cat](cat.png) ![](dog.png)", dark = false) { alt ->
+            if (alt.isEmpty()) "picture" else "picture of $alt"
+        }
+        assertTrue(page.contains("<em>picture of a cat</em>"))
+        assertTrue(page.contains("<em>picture</em>"))
+    }
+
+    @Test
     fun `the dark flag changes background and text colours`() {
         val light = html("x", dark = false)
         val dark = html("x", dark = true)
