@@ -61,6 +61,7 @@
       <li>Android lets an app use the internet only if the app has the internet permission. Markdown does not have it, and its code makes no network requests.</li>
       <li>Markdown shows your document in a web view. That is the part of Android that draws web pages. Here it is set to load nothing from the internet, so a picture in a document is never fetched. It appears as the words <code>[image: description]</code> instead, using the picture's own description.</li>
       <li>A link in a document is only an address until you tap it. When you tap one, Markdown passes the address (a web or an email address) to Android. Android opens it in the browser or mail app you use. That app contacts the link's server, not Markdown.</li>
+      <li>The About screen has buttons that open web pages on this website and on GitHub: "See the latest version", "Read the privacy policy", "Open the website", "See the source code on GitHub" and "Report a problem on GitHub". They work like a link in a document. Nothing opens until you tap a button. Then Markdown passes the address to Android, and Android opens it in your web browser. Your browser contacts that page's server, not Markdown. Markdown never checks for updates on its own.</li>
     </ul>
     <p>This website is separate from the app. When you read this page, your browser fetches a stylesheet and a script for the Cocode page frame (the bars at the top and bottom of the page) from <code>brand.cocode.dk</code>. The page itself comes from GitHub Pages, GitHub's website hosting. Those requests come from your browser, not from the app.</p>
   </section>
@@ -80,7 +81,7 @@
   <section>
     <h2 data-md="##">What stays on the phone</h2>
     <p>Markdown stores nothing of its own: no database, no settings file, no cache (saved copies kept for speed) and no history.</p>
-    <p>While the app runs, the text of the open file and the file's address are held in the phone's working memory. Changes you have not saved exist only there. If you tap Done with unsaved changes, the app asks "Discard your changes?", and choosing Discard throws them away. They are also gone when the app is closed.</p>
+    <p>While the app runs, the text of the open file and the file's address are held in the phone's working memory. Changes you have not saved exist only there. If you tap Close editor with unsaved changes, the app asks "Discard your changes?", and choosing Discard throws them away. They are also gone when the app is closed.</p>
     <p>The only thing Markdown writes is the file itself, and only when you tap Save. It goes to the file you opened or to the place you chose. That file is yours and stays where you put it. To delete it, use your file manager, the app you use to browse files.</p>
     <p>Android can copy an app's data into a backup. Markdown turns that off, so none of it is copied into an Android backup.</p>
   </section>
@@ -93,7 +94,7 @@
     <ul class="md">
       <li>Android System WebView, the web view described above. In Markdown its scripts, file access and network loading are switched off.</li>
       <li>The file picker, and the app that holds your file or sends it to Markdown: a file manager, a mail app or a cloud storage app (an app that keeps files online). A cloud storage app may download a file when you open it and upload it again after you save. That is that app, not Markdown.</li>
-      <li>The browser or mail app that opens a link you tap.</li>
+      <li>The browser or mail app that opens a link you tap, in a document or on the About screen.</li>
       <li>Your keyboard, when you type in the editor. Markdown has no keyboard of its own.</li>
     </ul>
   </section>
