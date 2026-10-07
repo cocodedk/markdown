@@ -2,6 +2,16 @@
 
 A small, fast Android app that opens Markdown files, shows them nicely and lets you edit them.
 
+## Install
+
+<!-- cocode-apps:install:start -->
+- Coming to F-Droid
+- [Download the APK from GitHub](https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk)
+- [Auto-update the GitHub APK with Obtainium](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/cocodedk/markdown)
+<!-- cocode-apps:install:end -->
+
+## Features
+
 - Opens from any app: tap a `.md` file in a file manager, a mail or a chat and pick “Markdown”.
 - GitHub-flavoured Markdown (tables, strikethrough, autolinks, task lists) in light and dark.
 - Edit the source and save it back, or start a new file with New.
@@ -12,18 +22,18 @@ A small, fast Android app that opens Markdown files, shows them nicely and lets 
 - [English](https://markdown.cocode.dk/)
 - [فارسی (Persian)](https://markdown.cocode.dk/fa/)
 
-## Install
+## Privacy
 
-Download `Markdown.apk` from the latest release:
-<https://github.com/cocodedk/markdown/releases/latest/download/Markdown.apk>
+Markdown asks for no permissions and never goes online, so remote images stay unloaded. Nothing in a
+document runs as a script. There are no accounts.
 
-## Building
+## Build
 
     ./gradlew assembleDebug
 
 The APK lands in `app/build/outputs/apk/debug/`. The build needs a full JDK 21 or newer and the Android SDK.
 
-## Testing
+### Test
 
     ./gradlew testDebugUnitTest
 
@@ -41,6 +51,12 @@ Every test runs on the JVM; Robolectric hosts the Android and Compose tests, so 
 | `website` | The project site at <https://markdown.cocode.dk>, English and Persian. `og.png` is rendered from `og-image.html`. |
 | `.githooks`, `scripts` | Git hooks and the owner's setup scripts. |
 | `fastlane/metadata` | F-Droid store metadata. |
+
+## Contributing
+
+Setup, the build and test commands, code style and the pull request checklist are in
+[CONTRIBUTING.md](CONTRIBUTING.md). Bugs and ideas go to the
+[issues page](https://github.com/cocodedk/markdown/issues).
 
 ## License
 
