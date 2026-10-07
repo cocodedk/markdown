@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privatlivspolitik: Markdown · Cocode</title>
+<meta name="description" content="Privatlivspolitik for Android-appen Markdown: den indsamler ingen personoplysninger, beder ikke om tilladelser og kan ikke bruge netværket.">
+<meta name="theme-color" content="#1e3a5f">
+<link rel="canonical" href="https://markdown.cocode.dk/da/privacy/">
+<link rel="alternate" hreflang="en" href="https://markdown.cocode.dk/privacy/">
+<link rel="alternate" hreflang="da" href="https://markdown.cocode.dk/da/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://markdown.cocode.dk/privacy/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
+<script type="module" src="../../frame-accent.js"></script>
+</head>
+<body>
+<cocode-head dark="auto" project="Markdown" accent="#1e3a5f" lang="da" links="Hent:/#install,Kildekode:https://github.com/cocodedk/markdown"><a href="https://cocode.dk">cocode.dk</a></cocode-head>
+<header class="site-nav">
+<!-- cocode-apps:nav:start -->
+<link rel="stylesheet" href="/css/cocode-nav.css">
+<a class="skip" href="#main">Spring til indhold</a>
+<nav class="cocode-nav" aria-label="Markdown">
+  <a class="brand" href="/da/" data-nav="home"><img src="/img/icon.png" alt="" width="32" height="32">Markdown</a>
+  <a href="/da/#how" data-nav="how">Sådan virker det</a>
+  <a href="/da/#install" data-nav="install">Installér</a>
+  <a href="https://cocode.dk/" data-nav="more">Flere apps</a>
+</nav>
+<!-- cocode-apps:nav:end -->
+</header>
+<main id="main" tabindex="-1">
+  <section>
+    <h1 data-md="#">Privatlivspolitik: Markdown</h1>
+    <p>Denne politik gælder for Android-appen Markdown (pakken <code>dk.cocode.markdown</code>) fra Cocode. Appen er på engelsk, så knapperne hedder Open, Save og Done.</p>
+    <p class="quiet">Gælder fra <time datetime="2026-10-07">7. oktober 2026</time>.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Resumé</h2>
+    <p>Markdown indsamler ingen personoplysninger og sender intet nogen steder hen. Appen beder ikke Android om nogen tilladelser, så den kan slet ikke bruge netværket. Den læser en fil, når du åbner den eller sender den til appen, og den skriver kun til en fil, når du trykker på Save. Der er ingen konto, ingen statistik, ingen reklamer og ingen fejlrapportering.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Hvad der indsamles</h2>
+    <p>Der indsamles ingenting. Appen håndterer to ting, og kun på din telefon:</p>
+    <ul class="md">
+      <li>Teksten i den fil, du åbner eller deler, eller den tekst, du skriver i editoren. Appen har den i hukommelsen, mens den vises og redigeres. En fil på over 2 MB bliver ikke åbnet.</li>
+      <li>Filens navn, som Android giver appen. Det står som titel øverst på skærmen.</li>
+    </ul>
+    <p>Appen har ingen konto, intet id for dig eller din telefon, ingen placering, ingen kontakter og ingen brugsstatistik. Skriver du til Cocode (se Kontakt), modtager Cocode din besked og din mailadresse. Det har intet med appen at gøre.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Servere appen kontakter</h2>
+    <p>Ingen. Appen har ikke tilladelse til at bruge netværket (se Tilladelser), og koden laver ingen netværkskald. Den webvisning, der tegner dit dokument, har netværksindlæsning slået fra, så et billede i et dokument bliver aldrig hentet. Det vises som teksten <code>[image: alt-tekst]</code>.</p>
+    <p>Et link i et dokument er kun en adresse, indtil du trykker på det. Gør du det, giver appen adressen (en webadresse eller en mailadresse) videre til Android, som åbner den i den browser eller mailapp, du bruger. Det er den app, der kontakter linkets server, ikke Markdown.</p>
+    <p>Dette websted er adskilt fra appen. Når du læser denne side, henter din browser et stilark og et script til Cocodes sideramme fra <code>brand.cocode.dk</code>, og selve siden kommer fra GitHub Pages. Det er forespørgsler fra din browser, ikke fra appen.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Tilladelser</h2>
+    <p>Appen beder ikke om nogen Android-tilladelser: ikke internet, ikke lager, ikke kamera, ikke mikrofon, ikke placering, ikke kontakter og ikke notifikationer.</p>
+    <p>Den kan alligevel læse og gemme filer, fordi du rækker den hver fil. Trykker du på Open, lader Androids egen filvælger dig vælge en fil, og Android giver appen adgang til netop den fil. Det samme sker, når en anden app åbner en fil i Markdown eller deler tekst eller en fil til den. Save bruger den samme adgang: appen skriver til den fil, Android gav den, eller til det sted, du vælger i Androids filvælger.</p>
+    <p>Appen oplyser, hvilke slags filer den kan åbne (Markdown og ren tekst), så Android tilbyder den under "Åbn med". Det er ikke en tilladelse.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Hvad der bliver på telefonen</h2>
+    <p>Appen gemmer ikke noget selv: ingen database, ingen indstillingsfil, ingen cache og ingen historik. Mens den kører, ligger teksten i den åbne fil og filens adresse i hukommelsen. Ændringer, du ikke har gemt, findes kun dér. Trykker du på Done, kasseres de, og de er væk, når appen lukkes.</p>
+    <p>Det eneste, appen skriver, er selve filen, og kun når du trykker på Save, til den fil, du åbnede, eller det sted, du valgte. Filen er din og bliver, hvor du lagde den. Slet den med din filhåndtering.</p>
+    <p>Appen slår også Androids appbackup fra, så intet fra den bliver kopieret ind i en Android-backup.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Tredjeparter</h2>
+    <p>Appen sender ikke data til nogen tredjepart. Den har intet bibliotek til statistik, reklamer eller fejlrapportering. Bibliotekerne i appen er Androids Jetpack og Compose (Google), Kotlin og dets coroutines (JetBrains) og de åbne CommonMark- og autolink-biblioteker, der laver Markdown om til en side. De kører inde i appen, og fordi appen ikke har tilladelse til netværket, kan ingen af dem oprette forbindelse til noget.</p>
+    <p>Andre dele af Android og andre apps er med, når du bruger Markdown, på deres egne vilkår:</p>
+    <ul class="md">
+      <li>Android System WebView tegner siden. I denne app er scripts, filadgang og netværksindlæsning slået fra.</li>
+      <li>Filvælgeren og den app, der har din fil eller sender den til Markdown: en filhåndtering, en mailapp eller en app til skylagring. En skyapp kan hente en fil, når du åbner den, og lægge den op igen, når du har gemt. Det er den app, ikke Markdown.</li>
+      <li>Den browser eller mailapp, der åbner et link, du trykker på.</li>
+      <li>Dit tastatur, når du skriver i editoren. Markdown har intet eget tastatur.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-md="##">Dine rettigheder</h2>
+    <p>Fordi appen ikke indsamler personoplysninger, og Cocode ikke modtager nogen fra den, er der intet at få indsigt i, rette eller slette. Efter databeskyttelsesforordningen (GDPR) har du ret til at spørge, hvilke personoplysninger der er om dig, til at få dem rettet eller slettet og til at klage. Skriv til <a href="mailto:bb@cocode.dk">bb@cocode.dk</a>, hvis du er i tvivl. Du kan også klage til <a href="https://www.datatilsynet.dk/">Datatilsynet</a>.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Kontakt</h2>
+    <p>Cocode (Babak Bandpey), <a href="mailto:bb@cocode.dk">bb@cocode.dk</a>. Du kan også oprette en issue på <a href="https://github.com/cocodedk/markdown/issues">GitHub</a>. Issues dér er offentlige.</p>
+  </section>
+
+  <section>
+    <h2 data-md="##">Ændringer</h2>
+    <p>Hvis politikken ændres, skifter datoen øverst, og dette afsnit siger, hvad der er nyt. Tidligere versioner ligger i projektets historik på <a href="https://github.com/cocodedk/markdown">GitHub</a>.</p>
+    <p><strong>7. oktober 2026:</strong> første version af politikken.</p>
+  </section>
+</main>
+<div class="site-footer">
+<!-- cocode-apps:footer:start -->
+<footer class="cocode-footer">
+  <a href="https://github.com/cocodedk/markdown">Kildekode</a> ·
+  Licens: Apache-2.0 ·
+  <a href="https://cocode.dk/">Lavet af Cocode (cocode.dk)</a>
+</footer>
+<!-- cocode-apps:footer:end -->
+</div>
+<cocode-foot dark="auto" project="Markdown" repo="cocodedk/markdown" lang="da"><a href="https://cocode.dk">Lavet af Babak Bandpey hos Cocode</a></cocode-foot>
+</body>
+</html>
