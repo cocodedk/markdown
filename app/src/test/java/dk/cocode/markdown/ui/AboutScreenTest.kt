@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.semantics.getOrNull
 import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -20,6 +21,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 class AboutScreenTest {
@@ -92,8 +94,15 @@ class AboutScreenTest {
     }
 
     @Test
-    fun `without a policy page there is no privacy link`() {
+    fun `this build offers the privacy policy and opens its page`() {
         openAbout()
+
+        assertEquals("https://markdown.cocode.dk/privacy/", tap("Read the privacy policy").dataString)
+    }
+
+    @Test
+    fun `without a policy page there is no privacy link`() {
+        showAbout(AboutTargets(onFdroid = false, privacyUrl = null))
 
         compose.onNodeWithText("Read the privacy policy").assertDoesNotExist()
         compose.onNodeWithText("Markdown collects no personal data.", substring = true).assertExists()
@@ -116,7 +125,7 @@ class AboutScreenTest {
         compose.onNodeWithText("Open the website").performScrollTo().performClick()
         compose.waitForIdle()
 
-        compose.onNodeWithText("No app on this phone", substring = true).assertExists()
+        compose.onNodeWithText("No app on this phone", substring = true).assertIsDisplayed()
     }
 
     @Test
@@ -141,6 +150,12 @@ class AboutScreenTest {
 
         compose.onNodeWithText("Notes").assertExists()
         compose.onNodeWithText("Name and version").assertDoesNotExist()
+    }
+
+    @Test
+    @Config(qualifiers = "w700dp-h260dp-land")
+    fun `on a short screen the main screen scrolls to its last button`() {
+        compose.onNodeWithTag(ABOUT_BUTTON_TAG).performScrollTo().assertIsDisplayed()
     }
 
     @Test

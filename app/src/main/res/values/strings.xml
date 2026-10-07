@@ -7,7 +7,7 @@
     <string name="shared_text">Shared text</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
-    <string name="done">Done</string>
+    <string name="done">Close editor</string>
     <string name="new_document">New</string>
     <string name="untitled">Untitled</string>
     <string name="could_not_save">This file could not be saved.</string>

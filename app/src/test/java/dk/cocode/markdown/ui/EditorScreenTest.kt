@@ -63,13 +63,13 @@ class EditorScreenTest {
     @Test
     fun `done with unsaved changes asks first, and discard leaves the editor`() {
         compose.runOnUiThread { viewModel.showText("Notes", "# Hi"); viewModel.edit(); viewModel.change("x") }
-        compose.onNodeWithText("Done").performClick()
+        compose.onNodeWithText("Close editor").performClick()
         compose.onNodeWithText("Discard your changes?").assertExists()
 
         compose.onNodeWithText("Keep editing").performClick()
         assertTrue(viewModel.state.value is ViewerState.Editing)
 
-        compose.onNodeWithText("Done").performClick()
+        compose.onNodeWithText("Close editor").performClick()
         compose.onNodeWithText("Discard").performClick()
         compose.waitForIdle()
         assertTrue(viewModel.state.value is ViewerState.Shown)
@@ -78,7 +78,7 @@ class EditorScreenTest {
     @Test
     fun `done with nothing changed leaves without asking`() {
         compose.runOnUiThread { viewModel.showText("Notes", "# Hi"); viewModel.edit() }
-        compose.onNodeWithText("Done").performClick()
+        compose.onNodeWithText("Close editor").performClick()
         compose.waitForIdle()
 
         compose.onNodeWithText("Discard your changes?").assertDoesNotExist()

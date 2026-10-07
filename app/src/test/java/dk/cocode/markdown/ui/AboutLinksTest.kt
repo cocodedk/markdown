@@ -53,9 +53,9 @@ class AboutLinksTest {
     }
 
     @Test
-    fun `this build links to GitHub and has no policy page yet`() {
+    fun `this build links to GitHub releases and to the published policy page`() {
         assertFalse(appTargets.onFdroid)
-        assertNull(appTargets.privacyUrl)
+        assertEquals("https://markdown.cocode.dk/privacy/", appTargets.privacyUrl)
     }
 
     @Test

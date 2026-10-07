@@ -13,7 +13,7 @@ enum class AboutLink { Update, Website, Source, Issues, Privacy }
 data class AboutTargets(val onFdroid: Boolean, val privacyUrl: String?)
 
 /** What this build of the app links to. Change it when apps.yml changes. */
-val appTargets = AboutTargets(onFdroid = false, privacyUrl = null)
+val appTargets = AboutTargets(onFdroid = false, privacyUrl = "https://markdown.cocode.dk/privacy/")
 
 private const val APPLICATION_ID = "dk.cocode.markdown"
 private const val SITE = "https://markdown.cocode.dk"
